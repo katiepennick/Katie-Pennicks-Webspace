@@ -1,0 +1,316 @@
+/* CSS is how you can add style to your website, such as colors, fonts, and positioning of your
+   HTML content. To learn how to do something, just try searching Google for questions like
+   "how to change link color." */
+
+@font-face {
+  font-family: 3D-thirteen-pixel;
+  src: url(/fonts/3D-Thirteen-Pixel.ttf);
+}
+
+@font-face {
+  font-family: Bitbap;
+  src: url(/fonts/BitPap.ttf);
+}
+
+@font-face {
+  font-family: nabla;
+  src: url(/fonts/Nabla.ttf);
+}
+
+@font-palette-values --test {
+  font-family: nabla;
+  base-palette: 6;
+}
+
+/* Reset */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  color: #1c191a;
+  font-family: "VT323", monospace;
+  font-weight: 400;
+  font-style: normal;
+  background: #f3f3f3;
+  line-height: 1.5;
+}
+
+/* Outer padding area */
+.page-padding {
+  padding: 40px;
+  background: pink; /* demo color */
+  background-color: #f6edcb;
+  opacity: 0.8;
+  background-image: linear-gradient(#b5c3e0 1px, transparent 1px),
+    linear-gradient(to right, #b5c3e0 1px, #f6edcb 1px);
+  background-size: 20px 20px;
+  min-height: 100vh;
+}
+
+/* Main content box */
+.content-box {
+  max-width: 1100px;
+  margin: 0 auto;
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 32px;
+  padding-bottom: 0;
+  border-radius: 10px;
+  border-style: solid;
+  border-color: #1c191a;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  background-color: #ffffff;
+  display: flex;
+  justify-content: center;
+}
+
+ul li a {
+  display: block;
+  color: #000000;
+  padding: 10px 15px;
+  text-decoration: none;
+}
+
+ul li a:hover {
+  background-color: #fff3c2;
+  border-radius: 20px;
+}
+
+h1 {
+  font-family: "Bitbap";
+  text-align: center;
+}
+
+header h1 {
+  font-family: "nabla", system-ui;
+  font-weight: 400;
+  font-style: normal;
+  margin-bottom: 16px;
+  text-align: center;
+  font-palette: --test;
+}
+
+header h2 {
+  margin-bottom: 24px;
+}
+
+main p {
+  margin-bottom: 16px;
+}
+
+footer {
+  margin-top: 32px;
+  padding-top: 16px;
+  border-top: 1px solid #ddd;
+  font-size: 14px;
+  width: 100%;
+  background-color: white;
+  padding: 8px;
+  text-align: center;
+}
+
+/* Mobile behavior */
+@media (max-width: 768px) {
+  .page-padding {
+    padding: 0; /* padding disappears */
+    background: none; /* optional */
+  }
+
+  .content-box {
+    max-width: 100%;
+    border-radius: 0;
+  }
+}
+
+/* Two column layout */
+
+.column-layout {
+  display: flex;
+  justify-content: space-between;
+}
+
+.column {
+  width: 48%;
+  height: fit-content;
+  margin-top: 10px;
+  padding: 20px;
+}
+
+.column-left {
+  border: 2px solid #b5c3e0;
+}
+
+.column-right {
+  border: 2px solid #b5c3e0;
+}
+
+/* Opening drawers and shelves */
+
+.three-column-layout {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.img-swap {
+  flex: 1 1 0;
+  min-width: 0;
+  position: relative;
+  display: block;
+  text-decoration: none;
+}
+
+/* images */
+.img-swap img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* hover image */
+.img-swap {
+  position: relative;
+  display: block;
+}
+
+.img-swap img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* hover swap logic */
+.img-swap .hover {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+}
+
+.img-swap:hover .base {
+  opacity: 0;
+}
+
+.img-swap:hover .hover {
+  opacity: 1;
+}
+
+/* hover text */
+.img-swap span {
+  position: absolute;
+  inset: 0; /* center helper */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  font-size: 2.5rem;
+  color: #fff;
+  pointer-events: none; /* keeps hover stable */
+  z-index: 10;
+
+  filter: drop-shadow(1px 1px 0 black) drop-shadow(-1px 1px 0 black)
+    drop-shadow(1px -1px 0 black) drop-shadow(-1px -1px 0 black);
+}
+
+.img-swap:hover span {
+  opacity: 1;
+}
+
+/* Assembled objects (desk, trunk, shelf) */
+
+.assembled-objects-container {
+  position: relative;
+  width: 100%;
+  max-width: 1000px; /* optional: keeps it from getting huge on big screens */
+  margin: 0 auto; /* optional: centers it */
+}
+
+.desk-container {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.object {
+  position: absolute;
+  height: auto;
+}
+
+.object-Book {
+  width: 18%;
+  left: 40%;
+  top: 41%;
+}
+
+.object-Camera {
+  width: 27%;
+  left: 5%;
+  top: 31%;
+}
+
+.object-Phone {
+  width: 18%;
+  left: 79%;
+  top: 41%;
+}
+
+.object-Index {
+  width: 19%;
+  left: 10%;
+  top: 9.5%;
+}
+
+.object-Monitor {
+  width: 39%;
+  left: 32%;
+  top: 5%;
+}
+
+/* swap behavior */
+.object-swap img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.object-swap .hover {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+}
+
+.object-swap:hover .base {
+  opacity: 0;
+}
+
+.object-swap:hover .hover {
+  opacity: 1;
+}
+
+/* hover text */
+.object-swap span {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  opacity: 0;
+  pointer-events: none;
+  z-index: 5;
+
+  font-size: 1.6rem;
+  color: #fff;
+  filter: drop-shadow(1px 1px 0 black) drop-shadow(-1px 1px 0 black)
+    drop-shadow(1px -1px 0 black) drop-shadow(-1px -1px 0 black);
+}
+
+.object-swap:hover span {
+  opacity: 1;
+}
