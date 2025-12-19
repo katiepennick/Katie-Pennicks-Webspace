@@ -1,0 +1,1 @@
+This is my first attempt at building a website using html and css. I am a beginner and learning as I go. I have tried to ensure the website will be accessible to screen readers and keyboard users, and optimsed across different screen sizes, but realistically there will be issues somewhere!
