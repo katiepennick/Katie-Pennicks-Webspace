@@ -2,6 +2,21 @@
    HTML content. To learn how to do something, just try searching Google for questions like
    "how to change link color." */
 
+/* Testing 11ty - this bit is temporary*/
+.site-header {
+  position: static;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background: transparent; /* or semi-transparent */
+}
+
+.site-footer {
+  background: #ffffff;
+}
+/*end of temp bit */
+
 @font-face {
   font-family: 3D-thirteen-pixel;
   src: url(/fonts/3D-Thirteen-Pixel.ttf);
@@ -20,6 +35,16 @@
 @font-palette-values --test {
   font-family: nabla;
   base-palette: 6;
+}
+
+.skip-link {
+  position: absolute;
+  left: -999px;
+}
+
+.skip-link:focus {
+  left: 12px;
+  top: 12px;
 }
 
 /* Reset */
@@ -41,9 +66,8 @@ body {
 /* Outer padding area */
 .page-padding {
   padding: 40px;
-  background: pink; /* demo color */
   background-color: #f6edcb;
-  opacity: 0.8;
+  opacity: 0.8; /* this makes whole website faded, adjust later */
   background-image: linear-gradient(#b5c3e0 1px, transparent 1px),
     linear-gradient(to right, #b5c3e0 1px, #f6edcb 1px);
   background-size: 20px 20px;

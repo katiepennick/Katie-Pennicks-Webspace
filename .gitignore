@@ -1,0 +1,7 @@
+# Node / Eleventy
+node_modules/
+_site/
+
+# OS noise
+.DS_Store
+Thumbs.db
