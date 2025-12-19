@@ -1,0 +1,66 @@
+---
+layout: layout.njk
+title: Sitemap
+permalink: /sitemap/
+---
+
+<h1>Sitemap</h1>
+
+<ul>
+    <li><a href="/">Home</a></li>
+    <li><a href="/about/">About</a></li>
+
+    <li>
+        <a href="/desk/">Desk</a>
+
+        {% if collections.desk and collections.desk.length %}
+        <ul>
+            {% for p in collections.desk %}
+            {% if p.url
+            and p.url != "/desk/"
+            and not p.data.excludeFromSitemap
+            and not p.data.eleventyExcludeFromCollections
+            %}
+            <li><a href="{{ p.url }}">{{ p.data.title or p.url }}</a></li>
+            {% endif %}
+            {% endfor %}
+        </ul>
+        {% endif %}
+    </li>
+
+    <li>
+        <a href="/shelf/">Shelf</a>
+
+        {% if collections.shelf and collections.shelf.length %}
+        <ul>
+            {% for p in collections.shelf %}
+            {% if p.url
+            and p.url != "/shelf/"
+            and not p.data.excludeFromSitemap
+            and not p.data.eleventyExcludeFromCollections
+            %}
+            <li><a href="{{ p.url }}">{{ p.data.title or p.url }}</a></li>
+            {% endif %}
+            {% endfor %}
+        </ul>
+        {% endif %}
+    </li>
+
+    <li>
+        <a href="/trunk/">Trunk</a>
+
+        {% if collections.trunk and collections.trunk.length %}
+        <ul>
+            {% for p in collections.trunk %}
+            {% if p.url
+            and p.url != "/trunk/"
+            and not p.data.excludeFromSitemap
+            and not p.data.eleventyExcludeFromCollections
+            %}
+            <li><a href="{{ p.url }}">{{ p.data.title or p.url }}</a></li>
+            {% endif %}
+            {% endfor %}
+        </ul>
+        {% endif %}
+    </li>
+</ul>

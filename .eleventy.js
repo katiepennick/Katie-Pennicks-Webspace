@@ -1,4 +1,12 @@
+const sitemap = require("@quasibit/eleventy-plugin-sitemap");
+
 module.exports = function (eleventyConfig) {
+  eleventyConfig.addPlugin(sitemap, {
+    sitemap: {
+      hostname: "https://katiepennick.com",
+    },
+  });
+
   // Copy these through to the output site unchanged
   eleventyConfig.addPassthroughCopy("style.css");
   eleventyConfig.addPassthroughCopy("images");

@@ -20,6 +20,7 @@
   },
   "homepage": "https://github.com/katiepennick/Katie-Pennicks-Webspace#readme",
   "devDependencies": {
-    "@11ty/eleventy": "^3.1.2"
+    "@11ty/eleventy": "^3.1.2",
+    "@quasibit/eleventy-plugin-sitemap": "^2.2.0"
   }
 }

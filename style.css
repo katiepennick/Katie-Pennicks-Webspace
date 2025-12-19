@@ -86,7 +86,8 @@ body {
   border-color: #1c191a;
 }
 
-ul {
+/* Footer */
+footer ul {
   list-style-type: none;
   margin: 0;
   padding: 0;
@@ -95,14 +96,14 @@ ul {
   justify-content: center;
 }
 
-ul li a {
+footer ul li a {
   display: block;
   color: #000000;
   padding: 10px 15px;
   text-decoration: none;
 }
 
-ul li a:hover {
+footer ul li a:hover {
   background-color: #fff3c2;
   border-radius: 20px;
 }
