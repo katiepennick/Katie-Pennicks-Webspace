@@ -12,6 +12,29 @@
   background: transparent; /* or semi-transparent */
 }
 
+.site-title {
+  font-family: "nabla", system-ui;
+  font-weight: 400;
+  font-style: normal;
+
+  font-size: clamp(3rem, 6vw, 6rem);
+
+  margin-bottom: 16px;
+  text-align: center;
+  font-palette: --pink;
+}
+
+.site-title a {
+  color: inherit;
+  font-size: inherit;
+  text-decoration: none;
+}
+
+.site-title a:hover,
+.site-title a:focus {
+  font-palette: --orange;
+}
+
 .site-footer {
   background: #ffffff;
 }
@@ -32,9 +55,14 @@
   src: url(/fonts/Nabla.ttf);
 }
 
-@font-palette-values --test {
+@font-palette-values --pink {
   font-family: nabla;
   base-palette: 6;
+}
+
+@font-palette-values --orange {
+  font-family: nabla;
+  base-palette: 1;
 }
 
 .skip-link {
@@ -103,7 +131,8 @@ footer ul li a {
   text-decoration: none;
 }
 
-footer ul li a:hover {
+footer ul li a:hover,
+footer ul li a:focus-visible {
   background-color: #fff3c2;
   border-radius: 20px;
 }
@@ -111,19 +140,6 @@ footer ul li a:hover {
 h1 {
   font-family: "Bitbap";
   text-align: center;
-}
-
-header h1 {
-  font-family: "nabla", system-ui;
-  font-weight: 400;
-  font-style: normal;
-  margin-bottom: 16px;
-  text-align: center;
-  font-palette: --test;
-}
-
-header h2 {
-  margin-bottom: 24px;
 }
 
 main p {
@@ -218,11 +234,13 @@ footer {
   opacity: 0;
 }
 
-.img-swap:hover .base {
+.img-swap:hover .base,
+.img-swap:focus-visible .base {
   opacity: 0;
 }
 
-.img-swap:hover .hover {
+.img-swap:hover .hover,
+.img-swap:focus-visible .hover {
   opacity: 1;
 }
 
@@ -243,7 +261,8 @@ footer {
     drop-shadow(1px -1px 0 black) drop-shadow(-1px -1px 0 black);
 }
 
-.img-swap:hover span {
+.img-swap:hover span,
+.img-swap:focus-visible span {
   opacity: 1;
 }
 
@@ -310,11 +329,13 @@ footer {
   opacity: 0;
 }
 
-.object-swap:hover .base {
+.object-swap:hover .base,
+.object-swap:focus-visible .base {
   opacity: 0;
 }
 
-.object-swap:hover .hover {
+.object-swap:hover .hover,
+.object-swap:focus-visible .hover {
   opacity: 1;
 }
 
@@ -336,6 +357,7 @@ footer {
     drop-shadow(1px -1px 0 black) drop-shadow(-1px -1px 0 black);
 }
 
-.object-swap:hover span {
+.object-swap:hover span,
+.object-swap:focus-visible span {
   opacity: 1;
 }
