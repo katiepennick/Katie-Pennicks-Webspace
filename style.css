@@ -1,44 +1,6 @@
-/* CSS is how you can add style to your website, such as colors, fonts, and positioning of your
-   HTML content. To learn how to do something, just try searching Google for questions like
-   "how to change link color." */
-
-/* Testing 11ty - this bit is temporary*/
-.site-header {
-  position: static;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 1000;
-  background: transparent; /* or semi-transparent */
-}
-
-.site-title {
-  font-family: "nabla", system-ui;
-  font-weight: 400;
-  font-style: normal;
-
-  font-size: clamp(3rem, 6vw, 6rem);
-
-  margin-bottom: 16px;
-  text-align: center;
-  font-palette: --pink;
-}
-
-.site-title a {
-  color: inherit;
-  font-size: inherit;
-  text-decoration: none;
-}
-
-.site-title a:hover,
-.site-title a:focus {
-  font-palette: --orange;
-}
-
-.site-footer {
-  background: #ffffff;
-}
-/*end of temp bit */
+/* ======================
+   Font library
+   ====================== */
 
 @font-face {
   font-family: 3D-thirteen-pixel;
@@ -65,21 +27,17 @@
   base-palette: 1;
 }
 
-.skip-link {
-  position: absolute;
-  left: -999px;
+/* ======================
+   General styling site-wide
+   ====================== */
+
+h1 {
+  font-family: "Bitbap";
+  text-align: center;
 }
 
-.skip-link:focus {
-  left: 12px;
-  top: 12px;
-}
-
-/* Reset */
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+main p {
+  margin-bottom: 16px;
 }
 
 body {
@@ -89,6 +47,13 @@ body {
   font-style: normal;
   background: #f3f3f3;
   line-height: 1.5;
+}
+
+/* I don't know what this is oops */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 /* Outer padding area */
@@ -114,7 +79,76 @@ body {
   border-color: #1c191a;
 }
 
-/* Footer */
+/* ======================
+   Header
+   ====================== */
+
+/* Site header main adjustments */
+.site-header {
+  --title-size: clamp(2.5rem, 6vw, 6rem);
+  display: flex;
+  justify-content: center;
+  margin-bottom: clamp(1.5rem, 4vw, 3rem);
+  margin-top: clamp(1rem, 1vw, 2rem); /* adjust this later -- too big? */
+}
+
+/* Make brand (text+icons) clickable and centered */
+.site-brand {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.8em; /* scales with text size --- potentially make this bigger? */
+  text-decoration: none;
+  color: inherit;
+  font-size: var(--title-size);
+}
+
+.site-title {
+  font-family: "nabla", system-ui;
+  font-weight: 400;
+  font-style: normal;
+  font-palette: --pink;
+  text-align: center;
+  line-height: 1; /* match icon height tightly */
+}
+
+.site-title a {
+  color: inherit;
+  font-size: inherit;
+  text-decoration: none;
+}
+
+.brand-icon {
+  height: 1em; /* exactly matches text height */
+  width: auto;
+  display: block;
+  transform-origin: center;
+  transition: transform 200ms ease;
+}
+
+/* Hover/focus rules for header */
+.site-brand:hover .site-title,
+.site-brand:focus-visible .site-title {
+  font-palette: --orange; /* orange is actually pink -- see font library */
+}
+
+.site-brand:hover .brand-icon,
+.site-brand:focus-visible .brand-icon {
+  transform: rotate(12deg);
+}
+.site-brand:hover .brand-icon.right,
+.site-brand:focus-visible .brand-icon.right {
+  transform: rotate(-12deg);
+}
+
+/* ======================
+   Footer
+   ====================== */
+
+.site-footer {
+  background: #ffffff;
+}
+
 footer ul {
   list-style-type: none;
   margin: 0;
@@ -137,15 +171,6 @@ footer ul li a:focus-visible {
   border-radius: 20px;
 }
 
-h1 {
-  font-family: "Bitbap";
-  text-align: center;
-}
-
-main p {
-  margin-bottom: 16px;
-}
-
 footer {
   margin-top: 32px;
   padding-top: 16px;
@@ -157,7 +182,10 @@ footer {
   text-align: center;
 }
 
-/* Mobile behavior */
+/* ======================
+   Mobile behaviour
+   ====================== */
+
 @media (max-width: 768px) {
   .page-padding {
     padding: 0; /* padding disappears */
@@ -169,6 +197,43 @@ footer {
     border-radius: 0;
   }
 }
+
+/* ======================
+   Accessibility
+   ====================== */
+
+/* Focus styles */
+.site-brand:focus-visible {
+  outline: 3px solid #fff3c2;
+  outline-offset: 6px;
+  border-radius: 12px;
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .brand-icon {
+    transition: none;
+  }
+
+  .site-brand:hover .brand-icon,
+  .site-brand:focus-visible .brand-icon {
+    transform: none;
+  }
+}
+
+/* Skip to main content */
+.skip-link {
+  position: absolute;
+  left: -999px;
+}
+.skip-link:focus {
+  left: 12px;
+  top: 12px;
+}
+
+/* ======================
+   Homepage layouts
+   ====================== */
 
 /* Two column layout */
 
@@ -266,7 +331,9 @@ footer {
   opacity: 1;
 }
 
-/* Assembled objects (desk, trunk, shelf) */
+/* ======================
+   Desk / Shelf / Draw hub layouts
+   ====================== */
 
 .assembled-objects-container {
   position: relative;
