@@ -61,9 +61,8 @@ body {
   padding: 40px;
   background-color: #f6edcb;
   opacity: 0.8; /* this makes whole website faded, adjust later */
-  background-image: linear-gradient(#b5c3e0 1px, transparent 1px),
-    linear-gradient(to right, #b5c3e0 1px, #f6edcb 1px);
-  background-size: 20px 20px;
+  background-image: url(/images/sky.png);
+  background-size: 1000px 1000px;
   min-height: 100vh;
 }
 
@@ -89,7 +88,7 @@ body {
   display: flex;
   justify-content: center;
   margin-bottom: clamp(1.5rem, 4vw, 3rem);
-  margin-top: clamp(1rem, 1vw, 2rem); /* adjust this later -- too big? */
+  padding-top: clamp(1rem, 1vw, 2rem); /* adjust this later -- too big? */
 }
 
 /* Make brand (text+icons) clickable and centered */
@@ -145,15 +144,20 @@ body {
    Footer
    ====================== */
 
-.site-footer {
-  background: #ffffff;
+footer {
+  margin-top: 32px;
+  padding-top: 16px;
+  border-top: 1px solid #ddd;
+  font-size: 14px;
+  width: 100%;
+  padding: 8px;
+  text-align: center;
 }
 
 footer ul {
   list-style-type: none;
   margin: 0;
   padding: 0;
-  background-color: #ffffff;
   display: flex;
   justify-content: center;
 }
@@ -171,71 +175,11 @@ footer ul li a:focus-visible {
   border-radius: 20px;
 }
 
-footer {
-  margin-top: 32px;
-  padding-top: 16px;
-  border-top: 1px solid #ddd;
-  font-size: 14px;
-  width: 100%;
-  background-color: white;
-  padding: 8px;
-  text-align: center;
-}
-
-/* ======================
-   Mobile behaviour
-   ====================== */
-
-@media (max-width: 768px) {
-  .page-padding {
-    padding: 0; /* padding disappears */
-    background: none; /* optional */
-  }
-
-  .content-box {
-    max-width: 100%;
-    border-radius: 0;
-  }
-}
-
-/* ======================
-   Accessibility
-   ====================== */
-
-/* Focus styles */
-.site-brand:focus-visible {
-  outline: 3px solid #fff3c2;
-  outline-offset: 6px;
-  border-radius: 12px;
-}
-
-/* Reduced motion */
-@media (prefers-reduced-motion: reduce) {
-  .brand-icon {
-    transition: none;
-  }
-
-  .site-brand:hover .brand-icon,
-  .site-brand:focus-visible .brand-icon {
-    transform: none;
-  }
-}
-
-/* Skip to main content */
-.skip-link {
-  position: absolute;
-  left: -999px;
-}
-.skip-link:focus {
-  left: 12px;
-  top: 12px;
-}
-
 /* ======================
    Homepage layouts
    ====================== */
 
-/* Two column layout */
+/* Two column layout (homepage boxes)*/
 
 .column-layout {
   display: flex;
@@ -257,7 +201,22 @@ footer {
   border: 2px solid #b5c3e0;
 }
 
-/* Opening drawers and shelves */
+.column-left .img-swap--small {
+  margin-right: 1rem;
+}
+
+/* About intro layout */
+.about-intro {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.about-text {
+  flex: 1;
+}
+
+/* Three column layout (trunk/desk/shelf) */
 
 .three-column-layout {
   display: flex;
@@ -272,11 +231,16 @@ footer {
   text-decoration: none;
 }
 
-/* images */
+/* moving images */
 .img-swap img {
   width: 100%;
   height: auto;
   display: block;
+}
+
+.img-swap--small {
+  flex: 0 0 auto;
+  width: clamp(60px, 10vw, 140px);
 }
 
 /* hover image */
@@ -329,6 +293,10 @@ footer {
 .img-swap:hover span,
 .img-swap:focus-visible span {
   opacity: 1;
+}
+
+.img-swap--small span {
+  font-size: 1.2rem;
 }
 
 /* ======================
@@ -427,4 +395,67 @@ footer {
 .object-swap:hover span,
 .object-swap:focus-visible span {
   opacity: 1;
+}
+
+/* ======================
+   Mobile behaviour
+   ====================== */
+
+@media (max-width: 768px) {
+  .page-padding {
+    padding: 0; /* padding disappears */
+  }
+
+  .content-box {
+    max-width: 100%;
+    border-radius: 0;
+  }
+}
+
+@media (max-width: 1024px) {
+  .column-layout {
+    flex-direction: column;
+  }
+
+  .column {
+    width: 100%;
+  }
+
+  /* optional: add space between the stacked boxes */
+  .column + .column {
+    margin-top: 16px;
+  }
+}
+
+/* ======================
+   Accessibility
+   ====================== */
+
+/* Focus styles */
+.site-brand:focus-visible {
+  outline: 3px solid #fff3c2;
+  outline-offset: 6px;
+  border-radius: 12px;
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .brand-icon {
+    transition: none;
+  }
+
+  .site-brand:hover .brand-icon,
+  .site-brand:focus-visible .brand-icon {
+    transform: none;
+  }
+}
+
+/* Skip to main content */
+.skip-link {
+  position: absolute;
+  left: -999px;
+}
+.skip-link:focus {
+  left: 12px;
+  top: 12px;
 }
