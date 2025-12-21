@@ -65,6 +65,16 @@
   border-style: solid;
 }
 
+.scalloped-box {
+  --r: 10px;
+  padding: calc(1.5 * var(--r));
+  background: white;
+  mask: linear-gradient(#000 0 0) no-repeat 50% / calc(100% - 2 * var(--r))
+      calc(100% - 2 * var(--r)),
+    radial-gradient(farthest-side, #000 97%, #0000) 0 0 / calc(2 * var(--r))
+      calc(2 * var(--r)) round;
+}
+
 /* ======================
    General styling site-wide
    ====================== */
@@ -85,6 +95,15 @@ body {
   font-style: normal;
   background: #f3f3f3;
   line-height: 1.5;
+}
+
+table,
+th,
+td {
+  border: 1px solid black;
+  border-collapse: collapse;
+  padding: 4px;
+  width: 25rem;
 }
 
 /* I don't know what this is oops */
