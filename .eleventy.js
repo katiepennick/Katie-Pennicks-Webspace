@@ -13,6 +13,7 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("fonts");
   eleventyConfig.addPassthroughCopy("robots.txt");
   eleventyConfig.addPassthroughCopy("neocities.png");
+  eleventyConfig.addPassthroughCopy("favicon.png");
 
   return {
     dir: {
