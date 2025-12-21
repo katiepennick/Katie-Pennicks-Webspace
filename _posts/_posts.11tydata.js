@@ -2,17 +2,20 @@ module.exports = {
   layout: "post.njk",
   tags: ["post"],
 
-  // Default: drafts stay private unless explicitly published
+  // Drafts are private by default
   draft: true,
 
+  // IMPORTANT: do NOT run Liquid/Nunjucks inside blog posts
+  templateEngineOverride: "md",
+
   eleventyComputed: {
-    // Only publish when draft is explicitly false
+    // Only publish when explicitly marked draft: false
     permalink: (data) => {
-      if (data.draft !== false) return false; // don't write a file
+      if (data.draft !== false) return false;
       return `/blog/${data.page.fileSlug}/`;
     },
 
-    // Also hide drafts from collections (blog index, tag pages, etc.)
+    // Keep drafts out of collections
     eleventyExcludeFromCollections: (data) => data.draft !== false,
   },
 };
