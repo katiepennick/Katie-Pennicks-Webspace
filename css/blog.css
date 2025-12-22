@@ -4,14 +4,17 @@
 
 :root {
   /* Easy theming knobs */
-  --blog-sidebar-bg: #ffffff;
-  --blog-box-bg: #ffffff;
-  --blog-border: #b5c3e0;
-  --blog-accent: #fff3c2;
+  --blog-sidebar-bg: #492537;
+  --blog-controls-bg: #9e6a0e;
+  --blog-box-bg: #9e6a0e;
+  --blog-border: #000000;
+  --blog-button-bg: #492537;
+  --blog-accent: #c5bd23;
   --blog-text: #000;
   --blog-muted: rgba(0, 0, 0, 0.7);
   --blog-gap: 16px;
-  --blog-radius: 16px;
+  --blog-radius: 5px;
+  --card-bg: #bba299;
 
   /* Controls scroll height of the cards area */
   --blog-scroll-height: 70vh;
@@ -19,12 +22,12 @@
 
 .blog-layout {
   display: grid;
+  margin: 20px;
   grid-template-columns: 280px 1fr;
   gap: 0;
-  align-items: start;
-  border: none;
+  align-items: stretch; /* important: equal height columns */
+  border: solid black 2px;
   border-radius: 0;
-  margin: calc(-1 * var(--content-padding, 32px));
   overflow: hidden; /* makes it feel like one attached frame */
 }
 
@@ -35,6 +38,14 @@
   top: 16px; /* adjust to taste */
   align-self: start;
   top: 0;
+  /* make it fill the full column height */
+  height: 100%;
+}
+
+.blog-sidebar .blog-title {
+  margin: 0 0 12px 0;
+  color: #fff;
+  font-size: 3rem;
 }
 
 .blog-main {
@@ -65,14 +76,16 @@
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
+  background-color: var(--blog-controls-bg);
 }
 
 .blog-btn {
   border: 2px solid var(--blog-border);
-  background: #fff;
+  background: var(--blog-button-bg);
   color: var(--blog-text);
   padding: 8px 10px;
-  border-radius: 999px;
+  margin: 4px;
+  border-radius: 15px;
   cursor: pointer;
   font: inherit;
 }
@@ -108,20 +121,31 @@
 .post-grid {
   display: grid;
   gap: var(--blog-gap);
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
 }
 
+/* ======================
+   Post cards
+   ====================== */
+
 .post-card {
+  position: relative;
   border: 2px solid var(--blog-border);
   border-radius: var(--blog-radius);
   padding: 14px;
-  background: #fff;
+  background: var(--card-bg);
+
+  min-height: 220px;
+
   display: flex;
   flex-direction: column;
   gap: 10px;
+}
 
-  /* keeps them square-ish */
-  aspect-ratio: 1 / 1;
+.post-card:hover,
+.post-card:focus-within {
+  transform: translateY(-3px) rotate(-0.3deg);
+  /* plus any card background change you want */
 }
 
 .post-card-title {
@@ -130,13 +154,30 @@
 }
 
 .post-card-link {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  height: 100%;
+  width: 100%;
+  padding: 14px;
+}
+
+/* Prevent global prose-link styles affecting card links */
+.post-card-link,
+.post-card-link:link,
+.post-card-link:visited {
   color: inherit;
+  font-weight: inherit;
   text-decoration: none;
+  background: transparent !important;
 }
 
 .post-card-link:hover,
-.post-card-link:focus-visible {
-  background: var(--blog-accent);
+.post-card-link:focus-visible,
+.post-card-link:active {
+  color: inherit;
+  background: transparent !important; /* stops the yellow highlight */
 }
 
 .post-card-date {
@@ -172,16 +213,29 @@
   overflow: hidden;
   /* keep preview neat */
   display: -webkit-box;
-  -webkit-line-clamp: 6;
+  -webkit-line-clamp: 5;
   -webkit-box-orient: vertical;
 }
 
-/* Responsive */
-@media (max-width: 1024px) {
-  .post-grid {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-  }
+.post-card-link--stretched::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
 }
+
+/* ensures the actual text is above the clickable overlay */
+.post-card-title,
+.post-card-date,
+.post-card-tags,
+.post-card-summary {
+  position: relative;
+  z-index: 2;
+}
+
+/* ======================
+   Responsive
+   ====================== */
 
 @media (max-width: 720px) {
   .blog-layout {

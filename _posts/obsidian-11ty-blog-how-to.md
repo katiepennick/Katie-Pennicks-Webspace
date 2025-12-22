@@ -2,6 +2,7 @@
 title: "How to blog on a static site using Obsidian and 11ty"
 date: 2025-12-21
 tags: [web-dev]
+summary: Neocities website, now with blog!
 draft: false
 ---
 If you're reading this, I have been successful in my attempt to implement a blog publishing workflow using Obsidian and Eleventy ([11ty](https://www.11ty.dev/))!

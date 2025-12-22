@@ -1,5 +1,5 @@
 ---
-layout: layout.njk
+layout: layout_blog.njk
 title: Blog
 permalink: /blog/
 ---
@@ -53,30 +53,27 @@ permalink: /blog/
 
                 <article class="post-card" data-post-card data-url="{{ post.url }}" data-date="{{ post.data.date }}"
                     data-tags="{{ topicTags | join(',') | lower }}">
-                    <h2 class="post-card-title">
-                        <a href="{{ post.url }}" class="post-card-link">{{ post.data.title }}</a>
-                    </h2>
+                    <a href="{{ post.url }}" class="post-card-link">
+                        <h2 class="post-card-title">{{ post.data.title }}</h2>
 
-                    {% if post.data.date %}
-                    <p class="post-card-date">{{ post.data.date }}</p>
-                    {% endif %}
+                        {% if post.data.date %}
+                        <p class="post-card-date">{{ post.data.date | readableDate }}</p>
+                        {% endif %}
 
-                    {% if topicTags and topicTags.length %}
-                    <ul class="post-card-tags" aria-label="Tags">
-                        {% for t in topicTags %}
-                        <li><span class="tag-pill">{{ t }}</span></li>
-                        {% endfor %}
-                    </ul>
-                    {% endif %}
+                        {% if topicTags and topicTags.length %}
+                        <ul class="post-card-tags" aria-label="Tags">
+                            {% for t in topicTags %}
+                            <li><span class="tag-pill">{{ t }}</span></li>
+                            {% endfor %}
+                        </ul>
+                        {% endif %}
 
-                    {% if post.data.summary %}
-                    <p class="post-card-summary">{{ post.data.summary }}</p>
-                    {% else %}
-                    <p class="post-card-summary blog-muted">
-                        Add <code>summary:</code> in the post front matter for a preview.
-                    </p>
-                    {% endif %}
+                        {% if post.data.summary %}
+                        <p class="post-card-summary">{{ post.data.summary }}</p>
+                        {% endif %}
+                    </a>
                 </article>
+
                 {% endfor %}
             </div>
         </div>
