@@ -2,6 +2,10 @@
    Borders and frames
    ====================== */
 
+.border-testsquiggle {
+  border-image: url("bordertest.png") 50 round;
+}
+
 .border-note {
   border-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACoAAAAqCAYAAADFw8lbAAAAsklEQVR4AezX0QqAIAwF0Ord//9QP6CeLkiy5ugStN1AFk5Hnvbisf3kqfehrbVzHOwfVUcUir33fRyYZ8nmE4XQPUJsdd5ahzpWzCeKk459+PTurUd+NeYV9QTQg9D21q/m64qyJSFeVxQC7ChRibIF2PXUoxJlC7DrpetRNlC4nkTDZM4GiTpA4bREw2TOhryiuGW+jQ7glM4nitslO050xkQ+UeOgn01LlE0t0bKiFwAAAP//JXtcRgAAAAZJREFUAwCp7LhVEeSV7gAAAABJRU5ErkJggg==")
     14 / 14px / 0 round;

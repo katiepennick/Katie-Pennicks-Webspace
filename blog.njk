@@ -1,0 +1,181 @@
+---
+layout: layout.njk
+title: Blog
+permalink: /blog/
+---
+
+<div class="blog-layout">
+    <aside class="blog-sidebar">
+        <h1 class="blog-title">Blog</h1>
+
+        <section class="blog-box" aria-labelledby="blog-categories">
+            <h2 id="blog-categories" class="blog-box-title">Categories</h2>
+
+            <div class="blog-controls">
+                <!-- Built by JS by scanning posts -->
+                <div class="tag-buttons" data-tag-buttons>
+                    <p class="blog-muted">Loading categories…</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="blog-box" aria-labelledby="blog-order">
+            <h2 id="blog-order" class="blog-box-title">Order</h2>
+
+            <div class="blog-controls" role="group" aria-label="Sort order">
+                <button type="button" class="blog-btn" data-sort="newest" aria-pressed="true">
+                    Newest first
+                </button>
+                <button type="button" class="blog-btn" data-sort="oldest" aria-pressed="false">
+                    Oldest first
+                </button>
+            </div>
+        </section>
+    </aside>
+
+    <section class="blog-main" aria-label="Blog posts">
+        <div class="blog-scroll" data-posts-scroll>
+            <div class="post-grid" data-post-grid>
+                {% for post in collections.post | reverse %}
+
+                {% set rawTags = post.data.tags or [] %}
+                {% set structuralTags = ["post", "desk", "shelf", "trunk"] %}
+
+                {# Build topicTags manually (exclude structural tags) #}
+                {% set topicTags = [] %}
+                {% for t in rawTags %}
+                {% if t != "post" and t != "desk" and t != "shelf" and t != "trunk" %}
+                {% set topicTags = (topicTags.concat([t])) %}
+                {% endif %}
+                {% endfor %}
+
+
+
+                <article class="post-card" data-post-card data-url="{{ post.url }}" data-date="{{ post.data.date }}"
+                    data-tags="{{ topicTags | join(',') | lower }}">
+                    <h2 class="post-card-title">
+                        <a href="{{ post.url }}" class="post-card-link">{{ post.data.title }}</a>
+                    </h2>
+
+                    {% if post.data.date %}
+                    <p class="post-card-date">{{ post.data.date }}</p>
+                    {% endif %}
+
+                    {% if topicTags and topicTags.length %}
+                    <ul class="post-card-tags" aria-label="Tags">
+                        {% for t in topicTags %}
+                        <li><span class="tag-pill">{{ t }}</span></li>
+                        {% endfor %}
+                    </ul>
+                    {% endif %}
+
+                    {% if post.data.summary %}
+                    <p class="post-card-summary">{{ post.data.summary }}</p>
+                    {% else %}
+                    <p class="post-card-summary blog-muted">
+                        Add <code>summary:</code> in the post front matter for a preview.
+                    </p>
+                    {% endif %}
+                </article>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+</div>
+
+<script>
+    (function () {
+        const cards = Array.from(document.querySelectorAll("[data-post-card]"));
+        const grid = document.querySelector("[data-post-grid]");
+        const tagButtonsWrap = document.querySelector("[data-tag-buttons]");
+        const sortButtons = Array.from(document.querySelectorAll("[data-sort]"));
+
+        if (!grid || !tagButtonsWrap) return;
+
+        // --- Build tag list by scanning cards (client-side) ---
+        const tagSet = new Set();
+        for (const card of cards) {
+            const tags = (card.getAttribute("data-tags") || "")
+                .split(",")
+                .map(t => t.trim())
+                .filter(Boolean);
+            tags.forEach(t => tagSet.add(t));
+        }
+
+        const tagsSorted = Array.from(tagSet).sort((a, b) => a.localeCompare(b));
+
+        // State
+        let activeTag = "all";
+        let activeSort = "newest";
+
+        // Render tag buttons
+        tagButtonsWrap.innerHTML = "";
+        const allBtn = makeTagButton("All", "all", true);
+        tagButtonsWrap.appendChild(allBtn);
+
+        tagsSorted.forEach(tag => {
+            tagButtonsWrap.appendChild(makeTagButton(tag, tag, false));
+        });
+
+        function makeTagButton(label, tagValue, pressed) {
+            const btn = document.createElement("button");
+            btn.type = "button";
+            btn.className = "blog-btn blog-btn--tag";
+            btn.textContent = label;
+            btn.setAttribute("data-tag", tagValue);
+            btn.setAttribute("aria-pressed", pressed ? "true" : "false");
+            btn.addEventListener("click", () => {
+                activeTag = tagValue;
+                for (const b of tagButtonsWrap.querySelectorAll("[data-tag]")) {
+                    b.setAttribute("aria-pressed", b.getAttribute("data-tag") === activeTag ? "true" : "false");
+                }
+                apply();
+            });
+            return btn;
+        }
+
+        // Sort buttons
+        sortButtons.forEach(btn => {
+            btn.addEventListener("click", () => {
+                activeSort = btn.getAttribute("data-sort");
+                sortButtons.forEach(b => b.setAttribute("aria-pressed", b === btn ? "true" : "false"));
+                apply();
+            });
+        });
+
+        function parseDate(val) {
+            // Expecting YYYY-MM-DD (your current style). If empty/invalid, treat as very old.
+            if (!val) return new Date(0);
+            const d = new Date(val);
+            return isNaN(d.getTime()) ? new Date(0) : d;
+        }
+
+        function apply() {
+            // Filter
+            cards.forEach((card) => {
+                if (activeTag === "all") {
+                    card.hidden = false;
+                    return;
+                }
+                const tags = (card.getAttribute("data-tags") || "")
+                    .split(",")
+                    .map((t) => t.trim())
+                    .filter(Boolean);
+
+                card.hidden = !tags.includes(activeTag);
+            });
+
+            // Sort visible only
+            const visible = cards.filter((c) => !c.hidden);
+            visible.sort((a, b) => {
+                const da = parseDate(a.getAttribute("data-date"));
+                const db = parseDate(b.getAttribute("data-date"));
+                return activeSort === "oldest" ? da - db : db - da;
+            });
+
+            // Re-append visible in order (hidden stay hidden wherever they are)
+            visible.forEach((c) => grid.appendChild(c));
+        }
+
+    })();
+</script>
