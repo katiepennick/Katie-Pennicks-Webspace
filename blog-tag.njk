@@ -1,0 +1,38 @@
+---
+layout: layout_blog.njk
+pagination:
+  data: collections.topicTags
+  size: 1
+  alias: tag
+permalink: /blog/tag/{{ tag | slug }}/
+eleventyComputed:
+  title: Posts tagged {{ tag }}
+---
+
+<h1 class="blog-title">Posts tagged “{{ tag }}”</h1>
+
+<ul class="post-grid">
+    {% for post in collections[tag] | reverse %}
+    <li class="post-card">
+        <a href="{{ post.url }}" class="post-card-link">
+            <h2 class="post-card-title">{{ post.data.title }}</h2>
+
+            {% if post.data.date %}
+            <time class="post-card-date" datetime="{{ post.data.date }}">
+                {{ post.data.date | readableDate }}
+            </time>
+            {% endif %}
+
+            {% if post.data.tags %}
+            <ul class="post-card-tags">
+                {% for t in post.data.tags %}
+                {% if t != "post" %}
+                <li class="tag-pill">{{ t }}</li>
+                {% endif %}
+                {% endfor %}
+            </ul>
+            {% endif %}
+        </a>
+    </li>
+    {% endfor %}
+</ul>

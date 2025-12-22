@@ -2,18 +2,53 @@
 layout: layout_blog.njk
 ---
 
-<article class="post">
-    <header class="post-header">
-        <h1>{{ title }}</h1>
+<div class="blog-layout">
+    <aside class="blog-sidebar">
+        <h1 class="blog-title">{{ title }}</h1>
 
-        {% if date %}
-        <p class="post-meta">
-            <time datetime="{{ date }}">{{ date }}</time>
-        </p>
-        {% endif %}
-    </header>
+        <section class="blog-box" aria-labelledby="post-info">
+            <h2 id="post-info" class="blog-box-title">Date posted</h2>
 
-    <div class="post-body">
-        {{ content | safe }}
-    </div>
-</article>
+            {% if date %}
+            <p class="post-meta">
+                <time datetime="{{ date | dateIso }}">{{ date | readableDate }}</time>
+            </p>
+            {% endif %}
+        </section>
+
+        <section class="blog-box" aria-labelledby="post-categories">
+            <h2 id="post-categories" class="blog-box-title">Tagged as</h2>
+
+            {% set rawTags = tags or [] %}
+            {% set topicTags = [] %}
+            {% for t in rawTags %}
+            {% if t != "post" and t != "desk" and t != "shelf" and t != "trunk" %}
+            {% set topicTags = (topicTags.concat([t])) %}
+            {% endif %}
+            {% endfor %}
+
+            {% if topicTags.length %}
+            <ul class="post-card-tags" aria-label="Tags">
+                {% for t in topicTags %}
+                <li>
+                    <a href="/blog/tag/{{ t | slug }}/" class="tag-pill">
+                        {{ t }}
+                    </a>
+                </li>
+
+                {% endfor %}
+            </ul>
+            {% else %}
+            <p class="blog-muted">No categories yet.</p>
+            {% endif %}
+        </section>
+    </aside>
+
+    <section class="blog-main" aria-label="Blog content">
+        <article class="post">
+            <div class="post-body">
+                {{ content | safe }}
+            </div>
+        </article>
+    </section>
+</div>

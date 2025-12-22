@@ -19,6 +19,13 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("favicon.png");
 
   // ✅ Human-friendly date filter for Nunjucks
+  eleventyConfig.addNunjucksFilter("dateIso", (value) => {
+    if (!value) return "";
+    const d = value instanceof Date ? value : new Date(value);
+    if (Number.isNaN(d.getTime())) return "";
+    return d.toISOString();
+  });
+
   eleventyConfig.addNunjucksFilter("readableDate", (value) => {
     if (!value) return "";
     const d = value instanceof Date ? value : new Date(value);
@@ -38,6 +45,19 @@ module.exports = function (eleventyConfig) {
     // Remove any trailing comma from weekday
     parts[0] = parts[0].replace(",", "");
     return parts.join(" ");
+  });
+
+  eleventyConfig.addCollection("topicTags", (collectionApi) => {
+    const structural = new Set(["post", "desk", "shelf", "trunk"]);
+
+    const tags = new Set();
+    collectionApi.getFilteredByTag("post").forEach((item) => {
+      (item.data.tags || []).forEach((t) => {
+        if (!structural.has(t)) tags.add(t);
+      });
+    });
+
+    return Array.from(tags).sort((a, b) => a.localeCompare(b));
   });
 
   return {
