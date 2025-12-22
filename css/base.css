@@ -31,6 +31,18 @@
    General styling site-wide
    ====================== */
 
+:root {
+  --theme-dark: #492537;
+  --theme-light: #c78fcb;
+  --theme-neutral-dark: #50462c;
+  --theme-neutral-light: #bba299;
+  --theme-accent1: #c5bd23;
+  --theme-accent2: #ed7e54;
+  --theme-accent3: #81d3cf;
+
+  --theme-background: rgba(227, 208, 201, 0.85);
+}
+
 /* text */
 
 h1 {
@@ -58,21 +70,23 @@ main a:not(.img-swap):not(.object-swap) {
 }
 
 main a:not(.img-swap):not(.object-swap):link {
-  color: #d93171;
+  color: #000000;
+  background-color: var(--theme-accent1);
 }
 
 main a:not(.img-swap):not(.object-swap):visited {
-  color: #6140a1;
+  color: #000000;
 }
 
 main a:not(.img-swap):not(.object-swap):hover,
 main a:not(.img-swap):not(.object-swap):focus-visible {
   color: #000;
-  background-color: #fff3c2;
+  background-color: var(--theme-accent2);
 }
 
 main a:not(.img-swap):not(.object-swap):active {
-  color: #d93171;
+  color: #000000;
+  background-color: var(--theme-accent3);
 }
 
 /* tables */
@@ -96,18 +110,20 @@ pre code {
   margin: 1em 0;
   padding-top: 2em;
   padding-left: 5em;
-  background-color: #000000;
-  border-left: #d93171 solid 5px;
+  background-color: var(--theme-dark);
+  border-left: var(--theme-accent1) 5px;
   border-radius: 0.33em;
 }
 
 /* Outer padding area */
 .page-padding {
   padding: 40px;
-  background-color: #f6edcb;
-  opacity: 0.8; /* this makes whole website faded, adjust later */
-  background-image: url(/images/sky.png);
-  background-size: 1500px 1500px;
+  background-color: var(--theme-dark);
+  background-image: url(/images/background-greenwich.png);
+  background-size: 2100px 1000px;
+  background-repeat: no-repeat;
+  background-position: left top;
+  background-attachment: fixed;
   min-height: 100vh;
 }
 
@@ -122,14 +138,14 @@ pre code {
 .content-box {
   max-width: 1100px;
   margin: 0 auto;
-  background-color: rgba(255, 255, 255, 0.8);
+  background-color: var(--theme-background);
   padding: 32px;
   padding-bottom: 0;
-  border: 35px solid transparent;
+  border: 40px solid transparent;
   border-image: url("/images/bordertest.png");
-  border-image-slice: 75;
+  border-image-slice: 100;
   border-image-repeat: round;
-  border-image-outset: 11px;
+  border-image-outset: 10px;
 }
 
 /* ======================
