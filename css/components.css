@@ -1,32 +1,4 @@
 /* ======================
-   Font library
-   ====================== */
-
-@font-face {
-  font-family: 3D-thirteen-pixel;
-  src: url(/fonts/3D-Thirteen-Pixel.ttf);
-}
-
-@font-face {
-  font-family: Bitbap;
-  src: url(/fonts/BitPap.ttf);
-}
-
-@font-face {
-  font-family: nabla;
-  src: url(/fonts/Nabla.ttf);
-}
-
-@font-palette-values --pink {
-  font-family: nabla;
-  base-palette: 6;
-}
-
-@font-palette-values --orange {
-  font-family: nabla;
-  base-palette: 1;
-}
-/* ======================
    Borders and frames
    ====================== */
 
@@ -76,164 +48,7 @@
 }
 
 /* ======================
-   General styling site-wide
-   ====================== */
-
-h1 {
-  font-family: "Bitbap";
-  text-align: center;
-}
-
-main p {
-  margin-bottom: 16px;
-}
-
-body {
-  color: #1c191a;
-  font-family: "VT323", monospace;
-  font-weight: 400;
-  font-style: normal;
-  background: #f3f3f3;
-  line-height: 1.5;
-}
-
-table,
-th,
-td {
-  border: 1px solid black;
-  border-collapse: collapse;
-  padding: 4px;
-  width: 25rem;
-}
-
-/* I don't know what this is oops */
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
-/* Outer padding area */
-.page-padding {
-  padding: 40px;
-  background-color: #f6edcb;
-  opacity: 0.8; /* this makes whole website faded, adjust later */
-  background-image: url(/images/sky.png);
-  background-size: 1500px 1500px;
-  min-height: 100vh;
-}
-
-/* Main content box */
-.content-box {
-  max-width: 1100px;
-  margin: 0 auto;
-  background-color: rgba(255, 255, 255, 0.8);
-  padding: 32px;
-  padding-bottom: 0;
-  border-radius: 10px;
-  border-style: solid;
-  border-color: #1c191a;
-}
-
-/* ======================
-   Header
-   ====================== */
-
-/* Site header main adjustments */
-.site-header {
-  --title-size: clamp(2.5rem, 6vw, 6rem);
-  display: flex;
-  justify-content: center;
-  margin-bottom: clamp(1.5rem, 4vw, 3rem);
-  padding-top: clamp(1rem, 1vw, 2rem); /* adjust this later -- too big? */
-}
-
-/* Make brand (text+icons) clickable and centered */
-.site-brand {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.8em; /* scales with text size --- potentially make this bigger? */
-  text-decoration: none;
-  color: inherit;
-  font-size: var(--title-size);
-}
-
-.site-title {
-  font-family: "nabla", system-ui;
-  font-weight: 400;
-  font-style: normal;
-  font-palette: --pink;
-  text-align: center;
-  line-height: 1; /* match icon height tightly */
-}
-
-.site-title a {
-  color: inherit;
-  font-size: inherit;
-  text-decoration: none;
-}
-
-.brand-icon {
-  height: 1em; /* exactly matches text height */
-  width: auto;
-  display: block;
-  transform-origin: center;
-  transition: transform 200ms ease;
-}
-
-/* Hover/focus rules for header */
-.site-brand:hover .site-title,
-.site-brand:focus-visible .site-title {
-  font-palette: --orange; /* orange is actually pink -- see font library */
-}
-
-.site-brand:hover .brand-icon,
-.site-brand:focus-visible .brand-icon {
-  transform: rotate(12deg);
-}
-.site-brand:hover .brand-icon.right,
-.site-brand:focus-visible .brand-icon.right {
-  transform: rotate(-12deg);
-}
-
-/* ======================
-   Footer
-   ====================== */
-
-footer {
-  margin-top: 32px;
-  padding-top: 16px;
-  border-top: 1px solid #ddd;
-  font-size: 14px;
-  width: 100%;
-  padding: 8px;
-  text-align: center;
-}
-
-footer ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  justify-content: center;
-}
-
-footer ul li a {
-  display: block;
-  color: #000000;
-  padding: 10px 15px;
-  text-decoration: none;
-}
-
-footer ul li a:hover,
-footer ul li a:focus-visible {
-  background-color: #fff3c2;
-  border-radius: 20px;
-}
-
-/* ======================
-   Homepage layouts
+   Homepage layouts: Two columns
    ====================== */
 
 /* Two column layout (homepage boxes)*/
@@ -268,6 +83,21 @@ footer ul li a:focus-visible {
   margin-right: 1rem;
 }
 
+/* Responsive: stack on smaller screens */
+@media (max-width: 1024px) {
+  .column-layout {
+    flex-direction: column;
+  }
+
+  .column {
+    width: 100%;
+  }
+
+  .column + .column {
+    margin-top: 16px;
+  }
+}
+
 /* About intro layout */
 .about-intro {
   display: flex;
@@ -279,7 +109,10 @@ footer ul li a:focus-visible {
   flex: 1;
 }
 
-/* Three column layout (trunk/desk/shelf) */
+/* ======================
+   Homepage layouts: Three columns
+   Desk / Shelf / Trunk
+   ====================== */
 
 .three-column-layout {
   display: flex;
@@ -345,6 +178,7 @@ footer ul li a:focus-visible {
   justify-content: center;
   opacity: 0;
   font-size: 2.5rem;
+  font-weight: normal;
   color: #fff;
   pointer-events: none; /* keeps hover stable */
   z-index: 10;
@@ -363,7 +197,8 @@ footer ul li a:focus-visible {
 }
 
 /* ======================
-   Desk / Shelf / Draw hub layouts
+   Hub layouts
+   (on the landing pages for desk/shelf/trunk)
    ====================== */
 
 .assembled-objects-container {
@@ -449,7 +284,9 @@ footer ul li a:focus-visible {
   pointer-events: none;
   z-index: 5;
 
-  font-size: 1.6rem;
+  font-size: 2rem;
+  font-weight: normal;
+  line-height: 2rem;
   color: #fff;
   filter: drop-shadow(1px 1px 0 black) drop-shadow(-1px 1px 0 black)
     drop-shadow(1px -1px 0 black) drop-shadow(-1px -1px 0 black);
@@ -458,67 +295,4 @@ footer ul li a:focus-visible {
 .object-swap:hover span,
 .object-swap:focus-visible span {
   opacity: 1;
-}
-
-/* ======================
-   Mobile behaviour
-   ====================== */
-
-@media (max-width: 768px) {
-  .page-padding {
-    padding: 0; /* padding disappears */
-  }
-
-  .content-box {
-    max-width: 100%;
-    border-radius: 0;
-  }
-}
-
-@media (max-width: 1024px) {
-  .column-layout {
-    flex-direction: column;
-  }
-
-  .column {
-    width: 100%;
-  }
-
-  /* optional: add space between the stacked boxes */
-  .column + .column {
-    margin-top: 16px;
-  }
-}
-
-/* ======================
-   Accessibility
-   ====================== */
-
-/* Focus styles */
-.site-brand:focus-visible {
-  outline: 3px solid #fff3c2;
-  outline-offset: 6px;
-  border-radius: 12px;
-}
-
-/* Reduced motion */
-@media (prefers-reduced-motion: reduce) {
-  .brand-icon {
-    transition: none;
-  }
-
-  .site-brand:hover .brand-icon,
-  .site-brand:focus-visible .brand-icon {
-    transform: none;
-  }
-}
-
-/* Skip to main content */
-.skip-link {
-  position: absolute;
-  left: -999px;
-}
-.skip-link:focus {
-  left: 12px;
-  top: 12px;
 }

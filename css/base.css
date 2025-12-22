@@ -1,0 +1,289 @@
+/* ======================
+   Font library
+   ====================== */
+
+@font-face {
+  font-family: 3D-thirteen-pixel;
+  src: url(/fonts/3D-Thirteen-Pixel.ttf);
+}
+
+@font-face {
+  font-family: Bitbap;
+  src: url(/fonts/BitPap.ttf);
+}
+
+@font-face {
+  font-family: nabla;
+  src: url(/fonts/Nabla.ttf);
+}
+
+@font-palette-values --pink {
+  font-family: nabla;
+  base-palette: 6;
+}
+
+@font-palette-values --orange {
+  font-family: nabla;
+  base-palette: 1;
+}
+
+/* ======================
+   General styling site-wide
+   ====================== */
+
+/* text */
+
+h1 {
+  font-family: "Bitbap";
+  text-align: center;
+}
+
+p {
+  margin-bottom: 16px;
+}
+
+body {
+  color: #1c191a;
+  font-family: "VT323", monospace;
+  font-weight: 400;
+  font-style: normal;
+  background: #f3f3f3;
+  line-height: 1.5;
+}
+
+/* text links */
+main a:not(.img-swap):not(.object-swap) {
+  text-decoration: none;
+  font-weight: bold;
+}
+
+main a:not(.img-swap):not(.object-swap):link {
+  color: #d93171;
+}
+
+main a:not(.img-swap):not(.object-swap):visited {
+  color: #6140a1;
+}
+
+main a:not(.img-swap):not(.object-swap):hover,
+main a:not(.img-swap):not(.object-swap):focus-visible {
+  color: #000;
+  background-color: #fff3c2;
+}
+
+main a:not(.img-swap):not(.object-swap):active {
+  color: #d93171;
+}
+
+/* tables */
+
+table,
+th,
+td {
+  border: 1px solid black;
+  border-collapse: collapse;
+  padding: 4px;
+  width: 25rem;
+}
+
+/* code blocks */
+
+pre code {
+  display: block;
+  font-family: monospace;
+  overflow-y: hidden;
+  color: white;
+  margin: 1em 0;
+  padding-top: 2em;
+  padding-left: 5em;
+  background-color: #000000;
+  border-left: #d93171 solid 5px;
+  border-radius: 0.33em;
+}
+
+/* Outer padding area */
+.page-padding {
+  padding: 40px;
+  background-color: #f6edcb;
+  opacity: 0.8; /* this makes whole website faded, adjust later */
+  background-image: url(/images/sky.png);
+  background-size: 1500px 1500px;
+  min-height: 100vh;
+}
+
+/* Remove white space from background padding */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Main content box */
+.content-box {
+  max-width: 1100px;
+  margin: 0 auto;
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 32px;
+  padding-bottom: 0;
+  border-radius: 10px;
+  border-style: solid;
+  border-color: #1c191a;
+}
+
+/* ======================
+   Header
+   ====================== */
+
+/* Site header main adjustments */
+.site-header {
+  --title-size: clamp(2.5rem, 5vw, 5rem);
+  display: flex;
+  justify-content: center;
+  margin-bottom: clamp(1.5rem, 4vw, 3rem);
+  padding-top: clamp(1rem, 1vw, 2rem); /* adjust this later -- too big? */
+}
+
+/* Make brand (text+icons) clickable and centered */
+.site-brand {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.1em; /* scales with text size --- potentially make this bigger? */
+  text-decoration: none;
+  color: inherit;
+  font-size: var(--title-size);
+}
+
+.site-title {
+  font-family: "nabla", system-ui;
+  font-weight: 400;
+  font-style: normal;
+  font-palette: --pink;
+  text-align: center;
+  line-height: 1; /* match icon height tightly */
+}
+
+.site-title a {
+  color: inherit;
+  font-size: inherit;
+  text-decoration: none;
+}
+
+.brand-icon {
+  height: 1em; /* exactly matches text height */
+  width: auto;
+  display: block;
+  transform-origin: center;
+  transition: transform 200ms ease;
+}
+
+/* Hover/focus rules for header */
+.site-brand:hover .site-title,
+.site-brand:focus-visible .site-title {
+  font-palette: --orange; /* orange is actually pink -- see font library */
+  background-color: none;
+}
+
+.site-brand:hover .brand-icon,
+.site-brand:focus-visible .brand-icon {
+  transform: rotate(12deg);
+}
+.site-brand:hover .brand-icon.right,
+.site-brand:focus-visible .brand-icon.right {
+  transform: rotate(-12deg);
+}
+
+/* ======================
+   Footer
+   ====================== */
+
+.site-footer {
+  margin-top: 32px;
+  padding: 16px 8px 8px;
+  border-top: 1px solid #ddd;
+  font-size: 14px;
+  text-align: center;
+}
+
+.site-footer ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  display: flex;
+  justify-content: center;
+  gap: 12px; /* spacing between links */
+  flex-wrap: wrap; /* prevents squish on small screens */
+}
+
+/* Link “pill” style */
+.site-footer a {
+  display: inline-block;
+  padding: 10px 15px;
+  text-decoration: none;
+
+  color: #000; /* covers link + visited */
+  border-radius: 20px; /* set once so hover doesn’t “jump” */
+}
+
+/* Hover + keyboard focus */
+.site-footer a:hover,
+.site-footer a:focus-visible {
+  background-color: #fff3c2;
+  color: #000;
+}
+
+/* Optional: visible keyboard focus ring */
+.site-footer a:focus-visible {
+  outline: 2px solid #000;
+  outline-offset: 3px;
+}
+
+/* ======================
+   Mobile behaviour 
+   for padding and content box
+   ====================== */
+
+@media (max-width: 768px) {
+  .page-padding {
+    padding: 0; /* padding disappears */
+  }
+
+  .content-box {
+    max-width: 100%;
+    border-radius: 0;
+  }
+}
+
+/* ======================
+   Accessibility
+   ====================== */
+
+/* Focus styles */
+.site-brand:focus-visible {
+  outline: 3px solid #fff3c2;
+  outline-offset: 6px;
+  border-radius: 12px;
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .brand-icon {
+    transition: none;
+  }
+
+  .site-brand:hover .brand-icon,
+  .site-brand:focus-visible .brand-icon {
+    transform: none;
+  }
+}
+
+/* Skip to main content */
+.skip-link {
+  position: absolute;
+  left: -999px;
+}
+.skip-link:focus {
+  left: 12px;
+  top: 12px;
+}
