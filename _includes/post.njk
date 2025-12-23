@@ -2,8 +2,11 @@
 layout: layout_blog.njk
 ---
 
+<a class="back-button" href="/blog">Back to blog</a>
+
 <div class="blog-layout">
     <aside class="blog-sidebar">
+                
         <h1 class="blog-title">{{ title }}</h1>
 
         <section class="blog-box" aria-labelledby="post-info">
@@ -42,6 +45,8 @@ layout: layout_blog.njk
             <p class="blog-muted">No categories yet.</p>
             {% endif %}
         </section>
+
+
     </aside>
 
     <section class="blog-main" aria-label="Blog content">

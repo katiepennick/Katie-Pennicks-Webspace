@@ -56,7 +56,7 @@ p {
 
 body {
   color: #1c191a;
-  font-family: "VT323", monospace;
+  font-family: "Jersey 15", sans-serif;
   font-weight: 400;
   font-style: normal;
   background: #f3f3f3;
@@ -110,7 +110,7 @@ pre code {
   margin: 1em 0;
   padding-top: 2em;
   padding-left: 5em;
-  background-color: var(--theme-dark);
+  background-color: var(--theme-neutral-dark);
   border-left: var(--theme-accent1) 5px;
   border-radius: 0.33em;
 }
@@ -218,7 +218,7 @@ pre code {
 .site-footer {
   margin-top: 32px;
   padding: 16px 8px 8px;
-  border-top: 1px solid #ddd;
+  border-top: 1px solid var(--theme-light);
   font-size: 14px;
   text-align: center;
 }
@@ -247,7 +247,7 @@ pre code {
 /* Hover + keyboard focus */
 .site-footer a:hover,
 .site-footer a:focus-visible {
-  background-color: #fff3c2;
+  background-color: var(--theme-accent1);
   color: #000;
 }
 

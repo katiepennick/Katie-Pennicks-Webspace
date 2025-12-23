@@ -10,11 +10,13 @@
   --blog-border: #000000;
   --blog-button-bg: #492537;
   --blog-accent: #c5bd23;
+  --blog-accent2: #ed7e54;
   --blog-text: #000;
   --blog-muted: rgba(0, 0, 0, 0.7);
   --blog-gap: 16px;
   --blog-radius: 5px;
-  --card-bg: #bba299;
+  --card-bg: #ffffff9a;
+  --back-button-bg: #c78fcb;
 
   /* Controls scroll height of the cards area */
   --blog-scroll-height: 70vh;
@@ -22,36 +24,52 @@
 
 .blog-layout {
   display: grid;
-  margin: 20px;
   grid-template-columns: 280px 1fr;
   gap: 0;
-  align-items: stretch; /* important: equal height columns */
+
+  margin: 40px;
   border: solid black 2px;
-  border-radius: 0;
-  overflow: hidden; /* makes it feel like one attached frame */
+  border-radius: 5px;
+
+  height: calc(100vh - 300px);
+  grid-template-rows: 1fr;
+  overflow: hidden;
+  align-items: stretch; /* important: equal height columns */
 }
 
 .blog-sidebar {
   background: var(--blog-sidebar-bg);
   padding: 16px;
   position: sticky;
-  top: 16px; /* adjust to taste */
-  align-self: start;
   top: 0;
-  /* make it fill the full column height */
-  height: 100%;
+  height: auto;
 }
 
 .blog-sidebar .blog-title {
-  margin: 0 0 12px 0;
-  color: #fff;
-  font-size: 3rem;
+  color: #ddcbc5;
+  font-family: "Jersey 15", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 2.5rem;
+  text-align: center;
+  line-height: 1;
 }
 
 .blog-main {
   border-left: 2px solid var(--blog-border);
   padding: 16px;
   min-width: 0;
+  overflow: auto;
+
+  background-color: rgba(227, 208, 201, 0.5);
+  background-size: 20px 20px;
+  background-image: repeating-linear-gradient(
+    0deg,
+    #bba299,
+    #bba299 1px,
+    rgba(227, 208, 201, 0.5) 1px,
+    rgba(227, 208, 201, 0.5)
+  );
 }
 
 .blog-title {
@@ -63,7 +81,7 @@
   margin-top: 16px;
   padding: 12px;
   border: 2px solid var(--blog-border);
-  border-radius: 14px;
+  border-radius: 5px;
   background: var(--blog-box-bg);
 }
 
@@ -83,16 +101,16 @@
   border: 2px solid var(--blog-border);
   background: var(--blog-button-bg);
   color: var(--blog-text);
-  padding: 8px 10px;
+  padding: 5px 8px;
   margin: 4px;
-  border-radius: 15px;
+  border-radius: 17px;
   cursor: pointer;
   font: inherit;
 }
 
 .blog-btn:hover,
 .blog-btn:focus-visible {
-  background: var(--blog-accent);
+  background: var(--blog-accent2);
 }
 
 .blog-btn[aria-pressed="true"] {
@@ -104,18 +122,17 @@
   outline-offset: 3px;
 }
 
+.back-button {
+  color: var(--back-button-bg);
+  padding: 8px 10px;
+  border-radius: 15px;
+  border: solid black 2px;
+  font-size: 1rem;
+  margin-left: 40px;
+}
+
 .blog-muted {
   color: var(--blog-muted);
-}
-
-.blog-main {
-  min-width: 0; /* prevents overflow weirdness */
-}
-
-.blog-scroll {
-  height: var(--blog-scroll-height);
-  overflow: auto;
-  padding-right: 4px;
 }
 
 .post-grid {
@@ -144,7 +161,8 @@
 
 .post-card:hover,
 .post-card:focus-within {
-  transform: translateY(-3px) rotate(-0.3deg);
+  transform: translateY(3px) rotate(-0.3deg);
+  color: var(--blog-accent2);
   /* plus any card background change you want */
 }
 
@@ -240,13 +258,9 @@
 @media (max-width: 720px) {
   .blog-layout {
     grid-template-columns: 1fr;
-    padding-left: 32;
-    padding-right: 32;
-  }
-
-  .blog-main {
-    border-left: none;
-    border-top: 2px solid var(--blog-border); /* optional separator */
+    height: auto;
+    overflow: visible;
+    margin: 16px;
   }
 
   .blog-sidebar {
@@ -254,15 +268,10 @@
     top: auto;
   }
 
-  .blog-scroll {
-    height: auto; /* let it flow on small screens */
-    overflow: visible;
-  }
-
   .blog-main {
+    overflow: visible;
     border-left: none;
-    padding-left: 32;
-    margin-top: var(--blog-gap);
+    border-top: 2px solid var(--blog-border); /* optional separator */
   }
 
   .post-grid {
