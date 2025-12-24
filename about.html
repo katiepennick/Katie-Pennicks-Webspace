@@ -9,33 +9,7 @@ title: About
 
 <div class="about-grid">
 
-
-    <div class="computer-box">
-        <div class="computer-box-title">
-            <h2>biography</h2>
-        </div>
-        <div class="computer-box-body">
-            <ul></ul>
-                <li>name: katie pennick</li>
-                <li>pronouns: she/her</li>
-                <li>age: baby millenial</li>
-                <li>location: london, uk</li>
-                <li>starsign: virgo</li>
-                <br>
-            <div class="button-banner">
-                <image class="button-img" src="/images/biwave.gif"></image>
-                <image class="button-img" src="/images/runescape.png"></image>
-                <image class="button-img" src="/images/graphicdesign.gif"></image>
-            </div>
-        </div>
-    </div>
-
-    <div class="tape-box">
-        <img class="tape-box-image" src="/images/polaroidme.png" alt="katie smiling"> 
-        <h2 class="tape-box-text">My face</h2>
-    </div>
-
-    <section class="tabs" style="max-width: 500px">
+    <section class="tabs content--about" style="max-width: 500px">
         <menu role="tablist" aria-label="About sections">
             <button id="tab-1" role="tab" aria-selected="true" aria-controls="panel-1">
             Webmistress
@@ -67,25 +41,51 @@ title: About
 
     </section>
 
-    <div class="gif-box">
+    <div class="tape-box content--polaroid">
+        <img class="tape-box-image" src="/images/polaroidme.png" alt="katie smiling"> 
+        <h2 class="tape-box-text">My face</h2>
+    </div>
+
+    <div class="computer-box content--biography">
+        <div class="computer-box-title">
+            <h2>biography</h2>
+        </div>
+        <div class="computer-box-body">
+            
+                <p>name: katie pennick</p>
+                <p>pronouns: she/her</p>
+                <p>age: baby millenial</p>
+                <p>location: london, uk</p>
+                <p>starsign: virgo</p>
+                <p>currently feeling: <a href="https://www.imood.com/users/katiepennick"><img src="https://moods.imood.com/display/uname-katiepennick/trans-1/imood.gif" alt="The current mood of katiepennick at www.imood.com" border="0"></a></p>
+                <br>
+            <div class="button-banner">
+                <img class="button-img" src="/images/biwave.gif" alt="bisexual pride flag"></image>
+                <img class="button-img" src="/images/runescape.png" alt="runescape logo"></image>
+                <img class="button-img" src="/images/graphicdesign.gif" alt="graphic design is my passion"></image>
+            </div>
+        </div>
+    </div>
+
+    <div class="gif-box content--cats">
         <img src="/images/noodlefelt1.gif" alt="noodle and felt: two fluffy cats cleaning themselves">
     </div>
 
-    <div class="scalloped-box">
+    <div class="scalloped-box content--likes">
         <h2 class="scalloped-title">likes</h2>
-        <ul class="scalloped-list"></ul>
-                <li>dungeons and dragons</li>
-                <li>maps</li>
-                <li>urbanism</li>
-                <li>learning new things</li>
-                <li>transport</li>
-                <li>archives</li>
-                <li>ephemera</li>
-                <li>autumn</li>
-                <br>
+        <ul class="scalloped-list">
+            <li>dungeons and dragons</li>
+            <li>maps</li>
+            <li>urbanism</li>
+            <li>learning new things</li>
+            <li>transport</li>
+            <li>archives</li>
+            <li>ephemera</li>
+            <li>autumn</li>
+        </ul>
     </div>
 
-    <div class="table-box">
+    <div class="table-box content--faves">
         <div class="table-box-header">
             <h2>faves</h2>
             <img src="/images/gyroid-wiggle.gif">
@@ -124,7 +124,116 @@ title: About
         </table>
     </div>
 
-    <div class="icon-box">
+    <div class="media-box  content--films">
+        <div class="media-box-header">
+            <h2>watching</h2>
+            <img src="/images/icon-film.gif">
+        </div>
+        <div class="media-box-body">
+            <div id="letterboxd-embed-wrapper-tc">Loading...</div>
+              <script>
+              fetch('https://lb-embed-content.bokonon.dev?username=penflix')
+              .then(response => response.text())
+              .then(data => {
+              document.getElementById('letterboxd-embed-wrapper-tc').innerHTML = data;
+              });
+              </script>
+        </div>
+    </div>
+
+    <div class="media-box content--books">
+        <div class="media-box-header">
+            <h2>reading</h2>
+            <img src="/images/icon-book.gif">
+        </div>
+        <div class="media-box-body">
+                  <!-- Show static HTML/CSS as a placeholder in case js is not enabled - javascript include will override this if things work -->
+      <style type="text/css" media="screen">
+            .gr_custom_container_1766551445 {
+              /* customize your Goodreads widget container here*/
+              border-radius:10px;
+              background-color: transparent;
+              color: #000000;
+            }
+            .gr_custom_header_1766551445 {
+              /* customize your Goodreads header here*/
+              border-bottom: 1px solid rgb(255, 255, 255);
+              width: 100%;
+              margin-bottom: 5px;
+              text-align: center;
+              font-size: 120%
+            }
+            .gr_custom_each_container_1766551445 {
+              /* customize each individual book container here */
+              width: 100%;
+              clear: both;
+              margin-bottom: 10px;
+              overflow: auto;
+              padding: 10px 10px 10px 10px;
+              border-bottom: 1px solid #ffffff;
+            }
+            .gr_custom_book_container_1766551445 {
+              /* customize your book covers here */
+              overflow: hidden;
+              float: left;
+              margin-right: 10px;
+              width: 50px;
+            }
+            .gr_custom_author_1766551445 {
+              /* customize your author names here */
+              font-size: 12px;
+            }
+          
+          </style>
+
+                <div id="gr_custom_widget_1766551445">
+                    <div class="gr_custom_container_1766551445">
+            
+              </h2>
+                <div class="gr_custom_each_container_1766551445">
+                    <div class="gr_custom_book_container_1766551445">
+                      <a title="Home Is Where We Start" rel="nofollow" href="https://www.goodreads.com/review/show/8098343022?utm_medium=api&amp;utm_source=custom_widget"><img alt="Home Is Where We Start" border="0" src="https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1718685148l/205068044._SY75_.jpg" /></a>
+                    </div>
+                    <div class="gr_custom_title_1766551445">
+                      <a rel="nofollow" href="https://www.goodreads.com/review/show/8098343022?utm_medium=api&amp;utm_source=custom_widget">Home Is Where We Start</a>
+                    </div>
+                    <div class="gr_custom_author_1766551445">
+                      by <a rel="nofollow" href="https://www.goodreads.com/author/show/21030702.Susanna_Crossman">Susanna Crossman</a>
+                    </div>
+                </div>
+                <div class="gr_custom_each_container_1766551445">
+                    <div class="gr_custom_book_container_1766551445">
+                      <a title="The Architecture of Disability: Buildings, Cities, and Landscapes beyond Access" rel="nofollow" href="https://www.goodreads.com/review/show/6729577456?utm_medium=api&amp;utm_source=custom_widget"><img alt="The Architecture of Disability: Buildings, Cities, and Landscapes beyond Access" border="0" src="https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1668309614l/60557267._SY75_.jpg" /></a>
+                    </div>
+                    <div class="gr_custom_title_1766551445">
+                      <a rel="nofollow" href="https://www.goodreads.com/review/show/6729577456?utm_medium=api&amp;utm_source=custom_widget">The Architecture of Disability: Buildings, Cities, and Landscapes beyond Access</a>
+                    </div>
+                    <div class="gr_custom_author_1766551445">
+                      by <a rel="nofollow" href="https://www.goodreads.com/author/show/580367.David_Gissen">David Gissen</a>
+                    </div>
+                </div>
+                <div class="gr_custom_each_container_1766551445">
+                    <div class="gr_custom_book_container_1766551445">
+                      <a title="The Origin of Capitalism: A Longer View" rel="nofollow" href="https://www.goodreads.com/review/show/6715727549?utm_medium=api&amp;utm_source=custom_widget"><img alt="The Origin of Capitalism: A Longer View" border="0" src="https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1728517812l/185160._SX50_.jpg" /></a>
+                    </div>
+                    <div class="gr_custom_title_1766551445">
+                      <a rel="nofollow" href="https://www.goodreads.com/review/show/6715727549?utm_medium=api&amp;utm_source=custom_widget">The Origin of Capitalism: A Longer View</a>
+                    </div>
+                    <div class="gr_custom_author_1766551445">
+                      by <a rel="nofollow" href="https://www.goodreads.com/author/show/107918.Ellen_Meiksins_Wood">Ellen Meiksins Wood</a>
+                    </div>
+                </div>
+            <noscript>
+              Share <a rel="nofollow" href="https://www.goodreads.com/">book reviews</a> and ratings with Katie, and even join a <a rel="nofollow" href="https://www.goodreads.com/group">book club</a> on Goodreads.
+            </noscript>
+            </div>
+
+                </div>
+                <script src="https://www.goodreads.com/review/custom_widget/13626312.Katie's%20bookshelf:%20read?cover_position=left&cover_size=small&num_books=3&order=d&shelf=read&show_author=1&show_cover=1&show_rating=0&show_review=0&show_tags=0&show_title=1&sort=date_read&widget_bg_color=FFFFFF&widget_bg_transparent=true&widget_border_width=1&widget_id=1766551445&widget_text_color=000000&widget_title_size=medium&widget_width=medium" type="text/javascript" charset="utf-8"></script>
+                  </div>
+        </div>
+
+    <div class="icon-box content--socials">
         <div class="icon-box-header">
             <h2>find me elsewhere</h2>
             <img src="/images/icon-search.gif">
@@ -133,127 +242,23 @@ title: About
 
 
         </div>
-    </div>
+    </div>    
+    
+    <div class="media-box content--games">
+          <div class="media-box-header">
+              <h2>playing</h2>
+              <img src="/images/icon-game.gif">
+          </div>
+          <div class="media-box-body">
+              <p>Baldur's Gate 3</p>
+              <p>Valheim</p>
+          </div>
+    
+        </div>
 
-    <div class="media-box">
-        <div class="media-box-header">
-            <h2>watching</h2>
-            <img src="/images/icon-film.gif">
-        </div>
-        <div class="media-box-body">
-            <p>8/11/25: Blade (1998) ***</p>
-            <p>4/10/25: One Battle After Another *****</p>
-        </div>
-        <div class="media-box-header">
-            <h2>reading</h2>
-            <img src="/images/icon-book.gif">
-        </div>
-        <div class="media-box-body">
-                  <!-- Show static HTML/CSS as a placeholder in case js is not enabled - javascript include will override this if things work -->
-      <style type="text/css" media="screen">
-  .gr_custom_container_1766551445 {
-    /* customize your Goodreads widget container here*/
-    border: 1px solid gray;
-    border-radius:10px;
-    padding: 10px 5px 10px 5px;
-    background-color: transparent;
-    color: #000000;
-    width: 300px
-  }
-  .gr_custom_header_1766551445 {
-    /* customize your Goodreads header here*/
-    border-bottom: 1px solid gray;
-    width: 100%;
-    margin-bottom: 5px;
-    text-align: center;
-    font-size: 120%
-  }
-  .gr_custom_each_container_1766551445 {
-    /* customize each individual book container here */
-    width: 100%;
-    clear: both;
-    margin-bottom: 10px;
-    overflow: auto;
-    padding-bottom: 4px;
-    border-bottom: 1px solid #aaa;
-  }
-  .gr_custom_book_container_1766551445 {
-    /* customize your book covers here */
-    overflow: hidden;
-    height: 60px;
-      float: left;
-      margin-right: 4px;
-      width: 39px;
-  }
-  .gr_custom_author_1766551445 {
-    /* customize your author names here */
-    font-size: 10px;
-  }
-  .gr_custom_tags_1766551445 {
-    /* customize your tags here */
-    font-size: 10px;
-    color: gray;
-  }
-  .gr_custom_rating_1766551445 {
-    /* customize your rating stars here */
-    float: right;
-  }
-</style>
 
-      <div id="gr_custom_widget_1766551445">
-          <div class="gr_custom_container_1766551445">
-   
-    </h2>
-      <div class="gr_custom_each_container_1766551445">
-          <div class="gr_custom_book_container_1766551445">
-            <a title="Home Is Where We Start" rel="nofollow" href="https://www.goodreads.com/review/show/8098343022?utm_medium=api&amp;utm_source=custom_widget"><img alt="Home Is Where We Start" border="0" src="https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1718685148l/205068044._SY75_.jpg" /></a>
-          </div>
-          <div class="gr_custom_title_1766551445">
-            <a rel="nofollow" href="https://www.goodreads.com/review/show/8098343022?utm_medium=api&amp;utm_source=custom_widget">Home Is Where We Start</a>
-          </div>
-          <div class="gr_custom_author_1766551445">
-            by <a rel="nofollow" href="https://www.goodreads.com/author/show/21030702.Susanna_Crossman">Susanna Crossman</a>
-          </div>
-      </div>
-      <div class="gr_custom_each_container_1766551445">
-          <div class="gr_custom_book_container_1766551445">
-            <a title="The Architecture of Disability: Buildings, Cities, and Landscapes beyond Access" rel="nofollow" href="https://www.goodreads.com/review/show/6729577456?utm_medium=api&amp;utm_source=custom_widget"><img alt="The Architecture of Disability: Buildings, Cities, and Landscapes beyond Access" border="0" src="https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1668309614l/60557267._SY75_.jpg" /></a>
-          </div>
-          <div class="gr_custom_title_1766551445">
-            <a rel="nofollow" href="https://www.goodreads.com/review/show/6729577456?utm_medium=api&amp;utm_source=custom_widget">The Architecture of Disability: Buildings, Cities, and Landscapes beyond Access</a>
-          </div>
-          <div class="gr_custom_author_1766551445">
-            by <a rel="nofollow" href="https://www.goodreads.com/author/show/580367.David_Gissen">David Gissen</a>
-          </div>
-      </div>
-      <div class="gr_custom_each_container_1766551445">
-          <div class="gr_custom_book_container_1766551445">
-            <a title="The Origin of Capitalism: A Longer View" rel="nofollow" href="https://www.goodreads.com/review/show/6715727549?utm_medium=api&amp;utm_source=custom_widget"><img alt="The Origin of Capitalism: A Longer View" border="0" src="https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1728517812l/185160._SX50_.jpg" /></a>
-          </div>
-          <div class="gr_custom_title_1766551445">
-            <a rel="nofollow" href="https://www.goodreads.com/review/show/6715727549?utm_medium=api&amp;utm_source=custom_widget">The Origin of Capitalism: A Longer View</a>
-          </div>
-          <div class="gr_custom_author_1766551445">
-            by <a rel="nofollow" href="https://www.goodreads.com/author/show/107918.Ellen_Meiksins_Wood">Ellen Meiksins Wood</a>
-          </div>
-      </div>
-  <noscript>
-    Share <a rel="nofollow" href="https://www.goodreads.com/">book reviews</a> and ratings with Katie, and even join a <a rel="nofollow" href="https://www.goodreads.com/group">book club</a> on Goodreads.
-  </noscript>
-  </div>
-
-      </div>
-      <script src="https://www.goodreads.com/review/custom_widget/13626312.Katie's%20bookshelf:%20read?cover_position=left&cover_size=small&num_books=3&order=d&shelf=read&show_author=1&show_cover=1&show_rating=0&show_review=0&show_tags=0&show_title=1&sort=date_read&widget_bg_color=FFFFFF&widget_bg_transparent=true&widget_border_width=1&widget_id=1766551445&widget_text_color=000000&widget_title_size=medium&widget_width=medium" type="text/javascript" charset="utf-8"></script>
-        </div>
-        <div class="media-box-header">
-            <h2>playing</h2>
-            <img src="/images/icon-game.gif">
-        </div>
-        <div class="media-box-body">
-            <p>Baldur's Gate 3</p>
-            <p>Valheim</p>
-        </div>
-    </div>
+  
+</div>
 
 </div>
 

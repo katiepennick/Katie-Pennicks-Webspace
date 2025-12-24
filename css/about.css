@@ -38,13 +38,50 @@
 
 .about-grid {
   display: grid;
-  grid-template-columns: auto auto auto;
+  grid-template-columns: repeat(3, 1fr);
   gap: 36px;
-  max-width: 1100px;
+  max-width: 1500px;
   margin: 0 auto;
   background-color: transparent;
-  padding: 10px;
-  padding-bottom: 36px;
+  padding: 10px 10px 36px;
+
+  grid-template-areas:
+    "about polaroid biography"
+    "cats  likes   faves"
+    "films books   socials"
+    "films games   .";
+}
+
+/* assign each box to an area in the grid */
+.content--about {
+  grid-area: about;
+}
+.content--polaroid {
+  grid-area: polaroid;
+}
+.content--biography {
+  grid-area: biography;
+}
+.content--cats {
+  grid-area: cats;
+}
+.content--likes {
+  grid-area: likes;
+}
+.content--faves {
+  grid-area: faves;
+}
+.content--films {
+  grid-area: films;
+}
+.content--books {
+  grid-area: books;
+}
+.content--socials {
+  grid-area: socials;
+}
+.content--games {
+  grid-area: games;
 }
 
 /* ======================
@@ -177,7 +214,8 @@ menu[role="tablist"] button[aria-selected="true"] {
 .scalloped-title {
 }
 
-.scalloped-list {
+.scalloped-list ul {
+  list-style-type: "-" !important;
 }
 
 /* box with a table in */
@@ -312,12 +350,13 @@ menu[role="tablist"] button[aria-selected="true"] {
   border-bottom: 2px solid black;
 }
 
-/* icon box */
+/* media box */
 
 .media-box {
   width: 3fr;
   border: 2px solid black;
   border-radius: 2px;
+  background-color: var(--about-neutral-light);
 }
 
 .media-box-header {
@@ -327,28 +366,49 @@ menu[role="tablist"] button[aria-selected="true"] {
   padding-left: 7px;
   padding-right: 7px;
   background-color: var(--about-accent1);
-  border-top: 2px solid black;
   border-bottom: 2px solid black;
 }
 
 .media-box-body {
-  background-color: var(--about-neutral-light);
+}
+
+.media-box[data-media="film"] {
 }
 
 /* ======================
    Mobile behaviour 
    ====================== */
 
-@media (max-width: 1000) {
+/* tablet: two column */
+
+@media (max-width: 1000px) {
   .about-grid {
-    padding: 10px;
-    grid-template-columns: 2fr;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+      "about     polaroid"
+      "biography cats"
+      "likes     faves"
+      "films     books"
+      "films     games"
+      "socials   .";
   }
 }
 
+/* mobile: single column */
+
 @media (max-width: 768px) {
   .about-grid {
-    padding: 10px;
     grid-template-columns: 1fr;
+    grid-template-areas:
+      "about"
+      "polaroid"
+      "biography"
+      "cats"
+      "likes"
+      "faves"
+      "films"
+      "books"
+      "games"
+      "socials";
   }
 }
