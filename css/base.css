@@ -27,6 +27,11 @@
   base-palette: 1;
 }
 
+@font-face {
+  font-family: Trattatello;
+  src: url(/fonts/Trattatello.ttf);
+}
+
 /* ======================
    General styling site-wide
    ====================== */
@@ -87,6 +92,16 @@ main a:not(.img-swap):not(.object-swap):focus-visible {
 main a:not(.img-swap):not(.object-swap):active {
   color: #000000;
   background-color: var(--theme-accent3);
+}
+
+/* lists */
+ul,
+ol {
+  padding-left: 3em;
+}
+
+ul ul {
+  padding-left: 1em;
 }
 
 /* tables */

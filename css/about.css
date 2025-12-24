@@ -1,0 +1,354 @@
+/* ======================
+   Roots and general styling
+   ====================== */
+
+:root {
+  /* Theme colours */
+  --about-dark: #492537;
+  --about-light: #c78fcb;
+  --about-neutral-dark: #50462c;
+  --about-neutral-light: #bba299;
+  --about-accent1: #c5bd23;
+  --about-accent2: #ed7e54;
+  --about-accent3: #81d3cf;
+
+  --about-background: rgba(227, 208, 201, 0.85);
+
+  /* Microsoft 98 colours */
+  --surface: #c0c0c0;
+  --button-highlight: #ffffff;
+  --button-face: #dfdfdf;
+  --button-shadow: #808080;
+  --window-frame: #0a0a0a;
+  --dialog-blue: #000080;
+  --dialog-blue-light: #1084d0;
+
+  --border-window-outer: inset -1px -1px var(--window-frame),
+    inset 1px 1px var(--button-face);
+  --border-window-inner: inset -2px -2px var(--button-shadow),
+    inset 2px 2px var(--button-highlight);
+
+  /* Spacing */
+  --element-spacing: 8px;
+}
+
+/* ======================
+   Layout
+   ====================== */
+
+.about-grid {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  gap: 36px;
+  max-width: 1100px;
+  margin: 0 auto;
+  background-color: transparent;
+  padding: 10px;
+  padding-bottom: 36px;
+}
+
+/* ======================
+   Microsoft tab box
+   ====================== */
+
+/* Tabs */
+:root {
+  --border-tab: inset -1px 0 var(--window-frame),
+    inset 1px 1px var(--button-face), inset -2px 0 var(--button-shadow),
+    inset 2px 2px var(--button-highlight);
+}
+
+.window {
+  box-shadow: var(--border-window-outer), var(--border-window-inner);
+  background: var(--surface);
+  padding: 3px;
+}
+
+.window[role="tabpanel"] {
+  position: relative;
+  z-index: 2;
+}
+
+menu[role="tablist"] {
+  position: relative;
+  margin: 0 0 -2px 0;
+  text-indent: 0;
+  list-style-type: none;
+  display: flex;
+  padding-left: 3px;
+}
+
+menu[role="tablist"] > li {
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+  box-shadow: var(--border-tab);
+  z-index: 1;
+}
+
+menu[role="tablist"] > li[aria-selected="true"] {
+  padding-bottom: 2px;
+  margin-top: -2px;
+  background-color: var(--surface);
+  position: relative;
+  z-index: 8;
+  margin-left: -3px;
+}
+
+menu[role="tablist"] > li > a {
+  display: block;
+  color: #000000;
+  margin: 6px;
+  text-decoration: none;
+}
+menu[role="tablist"] > li[aria-selected="true"] > a:focus {
+  outline: none;
+}
+menu[role="tablist"] > li > a:focus {
+  outline: 1px dotted #222;
+}
+
+menu[role="tablist"] button {
+  top: 3px;
+  padding: 3px 12px;
+  background: silver;
+  box-shadow: inset 1px 1px #fff, inset 2px 2px #dfdfdf, inset -1px 0 #000,
+    inset -2px 0 #7f7f7f;
+  border-top-right-radius: 3px;
+  border-top-left-radius: 3px;
+  border-bottom: 2px solid transparent;
+  z-index: 1;
+  display: block;
+  color: #222;
+  text-decoration: none;
+  font-family: inherit;
+  font-size: 1.2rem;
+  min-width: unset;
+}
+
+menu[role="tablist"] button[aria-selected="true"]:first-of-type {
+  left: 0;
+}
+
+menu[role="tablist"] button[aria-selected="true"] {
+  top: 2px;
+  margin-right: -1px;
+  margin-top: -4px;
+}
+
+menu[role="tablist"] button[aria-selected="true"] {
+  padding-bottom: 2px;
+  margin-top: -2px;
+  background-color: silver;
+  position: relative;
+  z-index: 8;
+  margin-left: -3px;
+  margin-bottom: 1px;
+}
+
+[role="tabpanel"] {
+  padding: 14px;
+  clear: both;
+  background: silver;
+  border: none;
+  position: relative;
+  z-index: 2;
+  margin-bottom: 9px;
+  box-shadow: inset 1px 1px #fff, inset 2px 2px #dfdfdf, inset -1px -1px #0a0a0a,
+    inset -2px -2px grey;
+}
+
+/* ======================
+   Other boxes
+   ====================== */
+
+/* scalloped box */
+
+.scalloped-box {
+  --r: 10px;
+  padding: calc(1.5 * var(--r));
+  background: var(--about-accent2);
+  mask: linear-gradient(#000 0 0) no-repeat 50% / calc(100% - 2 * var(--r))
+      calc(100% - 2 * var(--r)),
+    radial-gradient(farthest-side, #000 97%, #0000) 0 0 / calc(2 * var(--r))
+      calc(2 * var(--r)) round;
+  height: 300px;
+}
+
+.scalloped-title {
+}
+
+.scalloped-list {
+}
+
+/* box with a table in */
+
+.table-box {
+  max-width: 3fr;
+  margin: 0 auto;
+  background-color: var(--theme-background);
+  border: solid 2px black;
+  height: 341px;
+}
+
+.table-box-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 7px;
+  padding-right: 7px;
+  background-color: var(--about-accent3);
+  border-bottom: 2px solid black;
+}
+
+/* gif box*/
+
+.gif-box {
+  border: 2px solid black;
+  height: auto;
+}
+
+/* Computer window-style box */
+
+.computer-box {
+  align-self: center;
+  max-width: 3fr;
+  margin: 0 auto;
+  padding: 3px;
+  box-shadow: var(--border-window-outer), var(--border-window-inner);
+  background: var(--surface);
+}
+
+.computer-box-title {
+  background: linear-gradient(
+    90deg,
+    var(--dialog-blue),
+    var(--dialog-blue-light)
+  );
+  padding: 3px 2px 3px 3px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.computer-box-title h2 {
+  font-weight: bold;
+  color: white;
+  margin-right: 24px;
+}
+
+.computer-box-body {
+  margin: var(--element-spacing);
+}
+
+.computer-box ul,
+.computer-box li {
+}
+
+.button-banner {
+}
+
+.button-img {
+}
+
+/* Boxes with washi tape */
+
+.tape-box {
+  display: block;
+  align-items: center;
+  width: 250px;
+  height: 325px;
+  margin: 0 auto;
+  position: relative;
+  background-color: white;
+  padding: 1rem;
+  border-radius: 5px;
+  box-shadow: 0 0 10px black;
+}
+
+.tape-box:before,
+.tape-box:after {
+  display: block;
+  position: absolute;
+}
+
+.tape-box:before {
+  content: url(/images/washi-green.png);
+  transform: rotate(-20deg);
+  left: -35px;
+  top: -10px;
+  z-index: 5;
+}
+
+.tape-box-image {
+  width: 220px;
+  display: block;
+  z-index: 0;
+}
+
+.tape-box-text {
+  font-size: 1.9rem;
+  margin-top: 5px;
+  font-family: "Trattatello";
+  text-align: center;
+}
+
+/* icon box */
+
+.icon-box {
+  background-color: var(--about-neutral-light);
+  width: 75%;
+  height: 250px;
+  border: 2px solid black;
+  border-radius: 2px;
+}
+
+.icon-box-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 7px;
+  padding-right: 7px;
+  background-color: var(--about-accent2);
+  border-bottom: 2px solid black;
+}
+
+/* icon box */
+
+.media-box {
+  width: 3fr;
+  border: 2px solid black;
+  border-radius: 2px;
+}
+
+.media-box-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 7px;
+  padding-right: 7px;
+  background-color: var(--about-accent1);
+  border-top: 2px solid black;
+  border-bottom: 2px solid black;
+}
+
+.media-box-body {
+  background-color: var(--about-neutral-light);
+}
+
+/* ======================
+   Mobile behaviour 
+   ====================== */
+
+@media (max-width: 1000) {
+  .about-grid {
+    padding: 10px;
+    grid-template-columns: 2fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .about-grid {
+    padding: 10px;
+    grid-template-columns: 1fr;
+  }
+}

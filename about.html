@@ -1,5 +1,5 @@
 ---
-layout: layout.njk
+layout: layout_blog.njk
 title: About
 ---
 
@@ -7,38 +7,224 @@ title: About
 
 <h1>about</h1>
 
+<div class="about-grid">
 
-<table>
-    <th colspan="2">
-        faves
-    </th>
-    <tr>
-        <td>transit</td>
-        <td>DLR (London), Barcelona Metro, Tokyo metro, bart (Berkeley, CA) </td>
-    </tr>
-    <tr>
-        <td style="width:15%">shows</td>
-        <td>severance, star trek tng, fleabag</td>
-    </tr>
-    <tr>
-        <td>games</td>
-        <td>bg3, valheim, cities skylines, sunhaven, witcher 3</td>
-    </tr>
-    <tr>
-        <td>films</td>
-        <td>LOTR, the matrix, rocky horror picture show, kill bill</td>
-    </tr>
-    <tr>
-        <td>colours</td>
-        <td>wine red, burnt orange, mustard yellow, salmon pink</td>
-    </tr>
-    <tr>
-        <td>crafts</td>
-        <td>knitting, map-making for dnd, drawing, scrapbooking</td>
-    </tr>
-    <tr>
-        <td>garms</td>
-        <td>LAYERS, checked/plaid trousers, velvet, witchy maxi skirts, sweater vests, ugly jumpers, mixing patterns and
-            textures, anything high-waisted </td>
-    </tr>
-</table>
+
+    <div class="computer-box">
+        <div class="computer-box-title">
+            <h2>biography</h2>
+        </div>
+        <div class="computer-box-body">
+            <ul></ul>
+                <li>name: katie pennick</li>
+                <li>pronouns: she/her</li>
+                <li>age: baby millenial</li>
+                <li>location: london, uk</li>
+                <li>starsign: virgo</li>
+                <br>
+            <div class="button-banner">
+                <image class="button-img" src="/images/biwave.gif"></image>
+                <image class="button-img" src="/images/runescape.png"></image>
+                <image class="button-img" src="/images/graphicdesign.gif"></image>
+            </div>
+        </div>
+    </div>
+
+    <div class="tape-box">
+        <img class="tape-box-image" src="/images/polaroidme.png" alt="katie smiling"> 
+        <h2 class="tape-box-text">My face</h2>
+    </div>
+
+    <section class="tabs" style="max-width: 500px">
+        <menu role="tablist" aria-label="About sections">
+            <button id="tab-1" role="tab" aria-selected="true" aria-controls="panel-1">
+            Webmistress
+            </button>
+            <button id="tab-2" role="tab" aria-selected="false" aria-controls="panel-2" tabindex="-1">
+            Site
+            </button>
+            <button id="tab-3" role="tab" aria-selected="false" aria-controls="panel-3" tabindex="-1">
+            Future updates
+            </button>
+        </menu>
+        
+        <div class="tab-panels">
+            <div id="panel-1" role="tabpanel" tabindex="0" aria-labelledby="tab-1">
+                <h3>about the webmistress</h3>
+                <p>I'm Katie, I'm a PhD researcher at University of Wesminster in the school of architecture and cities. I'm interested in Crip Theory and urban geography, and my work looks at the practices of disabled people's everyday mobilities. My home is London, where I have been for over a decade and which I fall more in love with everyday. I'm a wheelchair user, dungeon master, and human-guardian to my two fluffy goblins Felt and Noodle.
+                </p>
+            </div>
+            <div id="panel-2" role="tabpanel" tabindex="0" aria-labelledby="tab-2" hidden>
+                <h3>about this website</h3>
+                <p>When I was 11 I spent all my free time on my parents' computer, playing Runescape, editing films on Windows Movie Maker, and updating my freewebs website. I've been inspired by the web revival movement's mission to recapture some of that old-web creativity, independence, and community. HTML and CSS were not in my skillset, but I've decided to learn them on the go with this project. Check out my <a href="/links/">links</a> page for sources I've found useful.</p>
+                <p>Accessibility: I care deeply about web accessibility. While I've done my best to build this site with a11y principles in mind, I acknowledge that I have likely messed up in some place or another, for which I apologise. Do reach out to me if you find any glaring mistakes.</p>
+            </div>
+            <div id="panel-3" role="tabpanel" tabindex="0" aria-labelledby="tab-3" hidden>
+                <h3>future updates</h3>
+                <p>once I've finished fiddling around with the about me page, I'm going to work on adding content to my shelves.</p>
+            </div>
+        </div>
+
+    </section>
+
+    <div class="gif-box">
+        <img src="/images/noodlefelt1.gif" alt="noodle and felt: two fluffy cats cleaning themselves">
+    </div>
+
+    <div class="scalloped-box">
+        <h2 class="scalloped-title">likes</h2>
+        <ul class="scalloped-list"></ul>
+                <li>dungeons and dragons</li>
+                <li>maps</li>
+                <li>urbanism</li>
+                <li>learning new things</li>
+                <li>transport</li>
+                <li>archives</li>
+                <li>ephemera</li>
+                <li>autumn</li>
+                <br>
+    </div>
+
+    <div class="table-box">
+        <div class="table-box-header">
+            <h2>faves</h2>
+            <img src="/images/gyroid-wiggle.gif">
+
+        </div>
+        <table>
+            <tr>
+                <td>transit</td>
+                <td>DLR (London), Barcelona Metro, Tokyo metro, bart (Berkeley, CA) </td>
+            </tr>
+            <tr>
+                <td style="width:15%">shows</td>
+                <td>severance, star trek tng, fleabag</td>
+            </tr>
+            <tr>
+                <td>games</td>
+                <td>bg3, valheim, cities skylines, sunhaven, witcher 3</td>
+            </tr>
+            <tr>
+                <td>films</td>
+                <td>LOTR, the matrix, rocky horror picture show, kill bill</td>
+            </tr>
+            <tr>
+                <td>colours</td>
+                <td>wine red, burnt orange, mustard yellow, salmon pink</td>
+            </tr>
+            <tr>
+                <td>crafts</td>
+                <td>knitting, map-making for dnd, drawing, scrapbooking</td>
+            </tr>
+            <tr>
+                <td>garms</td>
+                <td>LAYERS, checked/plaid trousers, velvet, witchy maxi skirts, sweater vests, ugly jumpers, mixing patterns and
+                    textures, anything high-waisted </td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="icon-box">
+        <div class="icon-box-header">
+            <h2>find me elsewhere</h2>
+            <img src="/images/icon-search.gif">
+        </div>
+        <div class="icon-box-body">
+
+
+        </div>
+    </div>
+
+    <div class="media-box">
+        <div class="media-box-header">
+            <h2>watching</h2>
+            <img src="/images/icon-film.gif">
+        </div>
+        <div class="media-box-body">
+            <p>8/11/25: Blade (1998) ***</p>
+            <p>4/10/25: One Battle After Another *****</p>
+        </div>
+        <div class="media-box-header">
+            <h2>reading</h2>
+            <img src="/images/icon-book.gif">
+        </div>
+        <div class="media-box-body">
+            <p>Currently: Talking to My Daughter About the Economy ***</p>
+            <p>23/12/25: Home is Where We Start</p>
+        </div>
+        <div class="media-box-header">
+            <h2>playing</h2>
+            <img src="/images/icon-game.gif">
+        </div>
+        <div class="media-box-body">
+            <p>Baldur's Gate 3</p>
+            <p>Valheim</p>
+        </div>
+    </div>
+
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const tabsContainer = document.querySelector(".tabs");
+  if (!tabsContainer) return;
+
+  const tabList = tabsContainer.querySelector(':scope > [role="tablist"]');
+  const tabs = Array.from(tabList.querySelectorAll(':scope > [role="tab"]'));
+  const tabPanelsContainer = tabsContainer.querySelector(":scope > .tab-panels");
+  const tabPanels = Array.from(tabPanelsContainer.querySelectorAll(':scope > [role="tabpanel"]'));
+
+  function showTab(targetTab) {
+    // update tabs
+    for (const tab of tabs) {
+      const selected = tab === targetTab;
+      tab.setAttribute("aria-selected", selected ? "true" : "false");
+      tab.tabIndex = selected ? 0 : -1;
+    }
+
+    // update panels
+    const targetPanelId = targetTab.getAttribute("aria-controls");
+    const targetTabPanel = document.getElementById(targetPanelId);
+
+    for (const panel of tabPanels) {
+      panel.hidden = panel !== targetTabPanel;
+    }
+
+    // optional: move focus into panel when activating via keyboard
+    // targetTabPanel?.focus();
+  }
+
+  // click to activate
+  tabs.forEach((tab) => {
+    tab.addEventListener("click", () => showTab(tab));
+
+    tab.addEventListener("keydown", (e) => {
+      if (e.key === "Enter" || e.key === " ") {
+        e.preventDefault();
+        showTab(tab);
+      }
+    });
+  });
+
+  // arrow keys to move focus (not activate)
+  tabList.addEventListener("keydown", (e) => {
+    const currentIndex = tabs.indexOf(document.activeElement);
+    if (currentIndex === -1) return;
+
+    let newIndex = null;
+    if (e.key === "ArrowRight") newIndex = (currentIndex + 1) % tabs.length;
+    if (e.key === "ArrowLeft") newIndex = (currentIndex - 1 + tabs.length) % tabs.length;
+    if (e.key === "Home") newIndex = 0;
+    if (e.key === "End") newIndex = tabs.length - 1;
+
+    if (newIndex === null) return;
+
+    e.preventDefault();
+    tabs[newIndex].focus();
+  });
+
+  // initialize: ensure the selected tab’s panel is shown
+  const initiallySelected = tabs.find((t) => t.getAttribute("aria-selected") === "true") || tabs[0];
+  showTab(initiallySelected);
+});
+</script>
