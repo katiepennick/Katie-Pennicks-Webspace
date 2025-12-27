@@ -27,6 +27,7 @@ title: About
                 <h3>about the webmistress</h3>
                 <p>I'm Katie, I'm a PhD researcher at University of Wesminster in the school of architecture and cities. I'm interested in Crip Theory and urban geography, and my work looks at the practices of disabled people's everyday mobilities. My home is London, where I have been for over a decade and which I fall more in love with everyday. I'm a wheelchair user, dungeon master, and human-guardian to my two fluffy goblins Felt and Noodle.
                 </p>
+                <p>My first online alias was <span class="wave" data-wave>katerooony</span> (my username for old school runescape), hence the title.</p>
             </div>
             <div id="panel-2" role="tabpanel" tabindex="0" aria-labelledby="tab-2" hidden>
                 <h3>about this website</h3>
@@ -325,4 +326,17 @@ document.addEventListener("DOMContentLoaded", () => {
   const initiallySelected = tabs.find((t) => t.getAttribute("aria-selected") === "true") || tabs[0];
   showTab(initiallySelected);
 });
+</script>
+
+<script>
+  document.querySelectorAll('[data-wave]').forEach(el => {
+    const text = el.textContent;
+    el.textContent = '';
+    [...text].forEach((ch, i) => {
+      const span = document.createElement('span');
+      span.textContent = ch === ' ' ? '\u00A0' : ch;
+      span.style.setProperty('--i', i);
+      el.appendChild(span);
+    });
+  });
 </script>

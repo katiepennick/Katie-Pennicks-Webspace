@@ -32,6 +32,16 @@
   src: url(/fonts/Trattatello.ttf);
 }
 
+@font-face {
+  font-family: Genzsch Initials;
+  src: url(/fonts/Genzsch\ Initials.ttf);
+}
+
+@font-face {
+  font-family: runescape_chat_bold_07;
+  src: url(/fonts/RuneScape-Chat-Bold-07.ttf);
+}
+
 /* ======================
    General styling site-wide
    ====================== */
@@ -157,8 +167,8 @@ pre code {
   padding: 32px;
   padding-bottom: 0;
   border: 40px solid transparent;
-  border-image: url("/images/bordertest.png");
-  border-image-slice: 100;
+  border-image: url("/images/border-pixelvines.png");
+  border-image-slice: 75;
   border-image-repeat: round;
   border-image-outset: 10px;
 }
@@ -169,16 +179,25 @@ pre code {
 
 /* Site header main adjustments */
 .site-header {
-  --title-size: clamp(2.5rem, 5vw, 5rem);
   display: flex;
   justify-content: center;
+  max-width: 1100px;
+  margin-left: auto;
+  margin-right: auto;
   margin-bottom: clamp(1.5rem, 4vw, 3rem);
-  padding-top: clamp(1rem, 1vw, 2rem); /* adjust this later -- too big? */
+  border: 40px solid transparent;
+  border-image: url("/images/border-pixelvines.png");
+  border-image-slice: 75;
+  border-image-repeat: round;
+  border-image-outset: 10px;
+  background-color: var(--theme-dark);
+  --title-size: clamp(3rem, 6vw, 6rem);
+  padding-top: clamp(0.5rem, 0.5vw, 2rem); /* adjust this later -- too big? */
 }
 
 /* Make brand (text+icons) clickable and centered */
 .site-brand {
-  display: inline-flex;
+  display: flex;
   align-items: center;
   justify-content: center;
   gap: 0.1em; /* scales with text size --- potentially make this bigger? */
@@ -188,10 +207,10 @@ pre code {
 }
 
 .site-title {
-  font-family: "nabla", system-ui;
+  font-family: "Genzsch Initials", system-ui;
+  color: #f6ded6;
   font-weight: 400;
   font-style: normal;
-  font-palette: --pink;
   text-align: center;
   line-height: 1; /* match icon height tightly */
 }
@@ -213,7 +232,7 @@ pre code {
 /* Hover/focus rules for header */
 .site-brand:hover .site-title,
 .site-brand:focus-visible .site-title {
-  font-palette: --orange; /* orange is actually pink -- see font library */
+  color: var(--theme-accent1);
   background-color: none;
 }
 

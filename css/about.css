@@ -394,6 +394,49 @@ menu[role="tablist"] button[aria-selected="true"] {
   }
 }
 
+/* runescape text */
+
+@keyframes wave {
+  0% {
+    transform: translateY(0);
+  }
+  25% {
+    transform: translateY(5px);
+  }
+  50% {
+    transform: translateY(0);
+  }
+  75% {
+    transform: translateY(-5px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+.wave span {
+  display: inline-block;
+  animation: wave 0.66s ease-in-out infinite;
+  animation-delay: calc(var(--i) * 40ms);
+}
+
+@keyframes wave {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+.wave {
+  font-family: "runescape_chat_bold_07";
+  font-size: 18px;
+  color: #ffff00;
+  text-shadow: 1px 1px black;
+}
+
 /* mobile: single column */
 
 @media (max-width: 768px) {
