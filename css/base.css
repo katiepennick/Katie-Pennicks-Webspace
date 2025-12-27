@@ -79,27 +79,27 @@ body {
 }
 
 /* text links */
-main a:not(.img-swap):not(.object-swap) {
+main a:not(.img-swap):not(.object-swap):not(.object-move) {
   text-decoration: none;
   font-weight: bold;
 }
 
-main a:not(.img-swap):not(.object-swap):link {
+main a:not(.img-swap):not(.object-swap):not(.object-move):link {
   color: #000000;
   background-color: var(--theme-accent1);
 }
 
-main a:not(.img-swap):not(.object-swap):visited {
+main a:not(.img-swap):not(.object-swap):not(.object-move):visited {
   color: #000000;
 }
 
-main a:not(.img-swap):not(.object-swap):hover,
-main a:not(.img-swap):not(.object-swap):focus-visible {
+main a:not(.img-swap):not(.object-swap):not(.object-move):hover,
+main a:not(.img-swap):not(.object-swap):not(.object-move):focus-visible {
   color: #000;
   background-color: var(--theme-accent2);
 }
 
-main a:not(.img-swap):not(.object-swap):active {
+main a:not(.img-swap):not(.object-swap):not(.object-move):active {
   color: #000000;
   background-color: var(--theme-accent3);
 }

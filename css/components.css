@@ -211,6 +211,7 @@
 .object {
   position: absolute;
   height: auto;
+  display: block; /* anchors behave more predictably as blocks */
 }
 
 .object-Book {
@@ -241,6 +242,48 @@
   width: 39%;
   left: 32%;
   top: 5%;
+}
+
+.object-envelope {
+  width: 22%;
+  left: 59%;
+  top: 18%;
+}
+
+.object-scrapbook {
+  width: 30%;
+  left: 26%;
+  top: 9%;
+}
+
+.object-photoframe {
+  width: 17%;
+  left: 50%;
+  top: 40%;
+}
+
+.object-tarot {
+  width: 20%;
+  left: 17%;
+  top: 65%;
+}
+
+.object-dice {
+  width: 20%;
+  left: 65%;
+  top: 51%;
+}
+
+.object-yarn {
+  width: 20%;
+  left: 63%;
+  top: 66%;
+}
+
+.object-binoculars {
+  width: 28%;
+  left: 33%;
+  top: 56%;
 }
 
 /* swap behavior */
@@ -288,5 +331,56 @@
 
 .object-swap:hover span,
 .object-swap:focus-visible span {
+  opacity: 1;
+}
+
+/* objects rotate (in trunk) */
+
+.object-move {
+  display: block;
+}
+
+.object-move img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.object-move img.hover {
+  position: static;
+  inset: auto;
+  opacity: 1;
+  height: auto;
+  display: block;
+}
+
+.object-move:hover img.hover,
+.object-move:focus-visible img.hover {
+  transform: rotate(4deg);
+}
+
+/* hover text */
+.object-move span {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+
+  opacity: 0;
+  pointer-events: none;
+  z-index: 5;
+
+  font-size: 2rem;
+  font-weight: normal;
+  line-height: 2rem;
+  color: #fff;
+  filter: drop-shadow(1px 1px 0 black) drop-shadow(-1px 1px 0 black)
+    drop-shadow(1px -1px 0 black) drop-shadow(-1px -1px 0 black);
+}
+
+.object-move:hover span,
+.object-move:focus-visible span {
   opacity: 1;
 }
