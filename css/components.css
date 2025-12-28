@@ -395,3 +395,46 @@
 .object-move:focus-visible span {
   opacity: 1;
 }
+
+/* ======================
+   Gallery layouts
+   (tarot cards, envelope patterns, gallery)
+   ====================== */
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: 4fr 4fr 4fr 4fr;
+  max-width: 1500px;
+  margin: 0 auto;
+  place-content: start center;
+}
+
+.gallery-object {
+  width: 90%;
+  transition-duration: 0.5s;
+  transition-property: scale;
+}
+
+.gallery-object:hover {
+  scale: 1.5;
+  transition-duration: 0.5s;
+  transition-property: scale;
+}
+
+@media (max-width: 1024px) {
+  .gallery-grid {
+    grid-template-columns: 3fr 3fr 3fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .gallery-grid {
+    grid-template-columns: 2fr 2fr;
+  }
+}
+
+@media (max-width: 426px) {
+  .gallery-grid {
+    grid-template-columns: 1fr;
+  }
+}
