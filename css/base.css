@@ -203,7 +203,7 @@ pre code {
 
   box-sizing: border-box;
   background-color: transparent;
-  --title-size: clamp(2.2rem, 10cqi, 6rem);
+  --title-size: clamp(1.3rem, 10cqi, 6rem);
 }
 
 /* Make brand (text+icons) clickable and centered */
