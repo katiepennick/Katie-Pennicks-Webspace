@@ -42,6 +42,11 @@
   src: url(/fonts/RuneScape-Chat-Bold-07.ttf);
 }
 
+@font-face {
+  font-family: NotJamBlkltr13;
+  src: url(/fonts/NotJamBlkltr13.ttf);
+}
+
 /* ======================
    General styling site-wide
    ====================== */
@@ -61,7 +66,7 @@
 /* text */
 
 h1 {
-  font-family: "Bitbap";
+  font-family: "NotJamBlkltr13";
   text-align: center;
 }
 
@@ -169,10 +174,10 @@ pre code {
   padding-bottom: 0;
 
   border: 50px solid transparent;
-  border-image: url("/images/border-pixelvines.png");
-  border-image-slice: 75;
+  border-image: url("/images/border-gildedflower.png");
+  border-image-slice: 41;
   border-image-repeat: round;
-  border-image-outset: 11px;
+  border-image-outset: 5px;
 }
 
 /* ======================
@@ -183,18 +188,22 @@ pre code {
 .site-header {
   display: flex;
   justify-content: center;
-  max-width: 1100px;
-  margin-left: auto;
-  margin-right: auto;
-  margin-bottom: clamp(1.5rem, 4vw, 3rem);
-  border: 40px solid transparent;
-  border-image: url("/images/border-pixelvines.png");
-  border-image-slice: 75;
-  border-image-repeat: round;
-  border-image-outset: 10px;
-  background-color: var(--theme-dark);
-  --title-size: clamp(3rem, 6vw, 6rem);
-  padding-top: clamp(0.5rem, 0.5vw, 2rem); /* adjust this later -- too big? */
+  align-items: center;
+
+  max-width: 900px;
+  margin: 0 auto clamp(1.5rem, 4vw, 3rem);
+
+  container-type: inline-size; /* let children size off *this* element */
+
+  border-style: solid;
+  border-width: clamp(36px, 6cqi, 60px) clamp(56px, 10cqi, 100px);
+  border-image: url("/images/border-banner.png");
+  border-image-slice: 103 333 103 333 fill;
+  border-image-repeat: stretch;
+
+  box-sizing: border-box;
+  background-color: transparent;
+  --title-size: clamp(2.2rem, 10cqi, 6rem);
 }
 
 /* Make brand (text+icons) clickable and centered */
@@ -206,10 +215,13 @@ pre code {
   text-decoration: none;
   color: inherit;
   font-size: var(--title-size);
+  max-width: 100%;
+  min-width: 0; /* important in flex layouts */
+  flex-wrap: wrap; /* optional: prevents escape at tiny sizes */
 }
 
 .site-title {
-  font-family: "Genzsch Initials", system-ui;
+  font-family: "NotJamBlkltr13", system-ui;
   color: #f6ded6;
   font-weight: 400;
   font-style: normal;
