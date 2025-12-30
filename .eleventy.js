@@ -11,9 +11,9 @@ module.exports = function (eleventyConfig) {
   });
 
   // Passthrough copies
-  eleventyConfig.addPassthroughCopy("css");
-  eleventyConfig.addPassthroughCopy("images");
-  eleventyConfig.addPassthroughCopy("fonts");
+  eleventyConfig.addPassthroughCopy({ css: "css" });
+  eleventyConfig.addPassthroughCopy({ images: "images" });
+  eleventyConfig.addPassthroughCopy({ fonts: "fonts" });
   eleventyConfig.addPassthroughCopy("robots.txt");
   eleventyConfig.addPassthroughCopy("neocities.png");
   eleventyConfig.addPassthroughCopy("favicon.png");

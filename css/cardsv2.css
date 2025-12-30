@@ -1,0 +1,56 @@
+/* VERSION: HOTPINK TEST 🧡🧡🧡*/
+
+.tarot-container {
+  --card-w: 14vmin; /* maybe move this into deck specific? */
+  font-family: monospace;
+  font-size: max(5vmin, 16px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 4rem 0;
+}
+
+/* Change these aspect ratios per deck */
+.deck-spain {
+  --ar-w: 7;
+  --ar-h: 13;
+}
+
+.hand {
+  display: inline-grid;
+  grid-template-columns: repeat(5, 0);
+  gap: 0;
+  transition: 250ms ease;
+  align-items: end;
+}
+
+.tarot-container:hover .hand {
+  grid-template-columns: repeat(5, var(--card-w));
+  gap: 2vmin;
+}
+
+.card {
+  width: var(--card-w);
+  aspect-ratio: var(--ar-w) / var(--ar-h);
+  position: relative;
+  transform-origin: 50% 100%;
+  transform: rotate(calc((var(--i) * 15deg) - 30deg));
+  transition: transform 250ms ease;
+}
+
+.tarot-container:hover .card {
+  transform: rotate(0);
+}
+
+.tarot-container:hover .card:hover {
+  transform: translateY(-20%) rotate(0);
+  z-index: 10;
+}
+
+.card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 1vmin;
+  display: block;
+}
