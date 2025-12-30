@@ -438,3 +438,53 @@
     grid-template-columns: 1fr;
   }
 }
+
+/* ======================
+   Page sections? idk what to call it
+   ====================== */
+
+.button-box {
+}
+
+.link-box {
+  margin-top: 10px;
+  padding: 10px 5px 5px;
+  border-top: 1px solid var(--theme-neutral-dark);
+  font-size: 14px;
+  text-align: center;
+}
+
+.link-box ul {
+  list-style: none;
+  margin: 10px;
+  padding: 0;
+
+  display: flex;
+  justify-content: center;
+  gap: 12px; /* spacing between links */
+  flex-wrap: wrap; /* prevents squish on small screens */
+}
+
+/* Link “pill” style */
+.link-box a {
+  display: inline-block;
+  padding: 0px 3px;
+  text-decoration: none;
+  font-size: medium;
+  color: #000; /* covers link + visited */
+  border: dashed black 1px;
+  border-radius: 0px;
+}
+
+/* Hover + keyboard focus */
+.link-box a:hover,
+.link-box a:focus-visible {
+  background-color: var(--theme-accent1);
+  color: #000;
+}
+
+/* Optional: visible keyboard focus ring */
+.link-box a:focus-visible {
+  outline: 2px solid #000;
+  outline-offset: 3px;
+}
