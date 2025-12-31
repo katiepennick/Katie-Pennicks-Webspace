@@ -14,6 +14,7 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy({ css: "css" });
   eleventyConfig.addPassthroughCopy({ images: "images" });
   eleventyConfig.addPassthroughCopy({ fonts: "fonts" });
+  eleventyConfig.addPassthroughCopy("js");
   eleventyConfig.addPassthroughCopy("robots.txt");
   eleventyConfig.addPassthroughCopy("neocities.png");
   eleventyConfig.addPassthroughCopy("favicon.png");

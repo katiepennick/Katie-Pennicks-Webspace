@@ -1,0 +1,283 @@
+/* =========================
+   BIRDWATCH — SCOPED CSS
+   Only applies when <body class="birdwatch-page">
+   ========================= */
+body.birdwatch-page {
+  /* intentionally empty */
+}
+
+body.birdwatch-page h1 {
+  margin: 0 0 1rem;
+  color: #0d0d0d;
+  font-size: clamp(1.5rem, 1rem + 2vw, 2.25rem);
+}
+
+/* App wrapper */
+body.birdwatch-page .birdwatch-app {
+  display: grid;
+  width: 100%;
+  display: grid;
+  gap: 1rem;
+}
+
+/* Header */
+body.birdwatch-page .bw-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+body.birdwatch-page .bw-header h2 {
+  margin: 0;
+  color: #fff;
+  font-size: clamp(1.25rem, 0.875rem + 2vw, 2rem);
+  text-shadow: 0 2px 0 #000, 2px 0 0 #000, 2px 2px 0 #000, -2px -2px 0 #000,
+    2px -2px 0 #000, -2px 2px 0 #000;
+}
+
+body.birdwatch-page .bw-header .additional {
+  display: flex;
+  gap: 0.75rem;
+  align-items: flex-end;
+  opacity: 0.7;
+}
+
+body.birdwatch-page .bw-header .additional small {
+  color: #252525;
+  width: 12rem;
+  text-align: right;
+}
+
+body.birdwatch-page .bw-header .additional kbd {
+  border: 2px solid #5e5e5e;
+  box-shadow: 6px 6px #222;
+  font-size: 1.25rem;
+  font-weight: 700;
+  background: #fff;
+  width: 40px;
+  height: 40px;
+  display: grid;
+  place-items: center;
+}
+
+/* Layout */
+body.birdwatch-page .bw-container {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(280px, 360px);
+  gap: 1rem;
+  align-items: start;
+}
+
+/* Grid */
+body.birdwatch-page .bw-characters {
+  display: grid;
+  gap: 0.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  /* auto-fit will never force overflow; it just drops columns when needed */
+  grid-auto-rows: 160px;
+  padding: 0.5rem;
+  background: #000;
+  border: 2px solid #999;
+  box-shadow: 6px 6px #222;
+}
+
+body.birdwatch-page .bw-tile {
+  position: relative;
+  background: #181818;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+}
+
+/* Radio covers the whole tile for easy click + keyboard */
+body.birdwatch-page .bw-radio {
+  appearance: none;
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+  z-index: 2;
+  margin: 0;
+}
+
+/* Visible focus (keyboard) */
+body.birdwatch-page .bw-radio:focus-visible {
+  outline: 3px solid #fff;
+  outline-offset: -3px;
+}
+
+/* Selected tile */
+body.birdwatch-page .bw-tile:has(.bw-radio:checked) {
+  background: var(--theme-light);
+  overflow: visible;
+}
+
+body.birdwatch-page .bw-tile:has(.bw-radio:checked) .bw-character img {
+  transform: scale(1.2);
+  opacity: 1;
+  filter: drop-shadow(0px 1px 0px var(--theme-accent1))
+    drop-shadow(-1px 0px 0px var(--theme-accent1))
+    drop-shadow(1px 0px 0px var(--theme-accent1))
+    drop-shadow(0px -1px 0px var(--theme-accent1));
+}
+
+/* Sprite image in grid */
+body.birdwatch-page .bw-character {
+  display: grid;
+  place-items: center;
+  z-index: 1;
+}
+
+body.birdwatch-page .bw-character img {
+  width: auto;
+  max-width: 70px;
+  max-height: 70px;
+  opacity: 0.8;
+  transform: scale(1);
+  transition: transform 160ms ease, opacity 160ms ease;
+  filter: drop-shadow(0px 1px 0px #ffffff) drop-shadow(-1px 0px 0px #ffffff)
+    drop-shadow(1px 0px 0px #ffffff);
+}
+
+/* Preview */
+body.birdwatch-page .bw-preview {
+  background: #000;
+  border: 2px solid #fff;
+  box-shadow: 6px 6px #222;
+  padding: 0.75rem;
+  display: grid;
+  gap: 0.75rem;
+  position: sticky;
+  top: 1rem;
+}
+
+body.birdwatch-page .bw-preview-head {
+  background: var(--theme-Xlight);
+  padding: 0.5rem 0.75rem;
+  text-align: center;
+}
+
+body.birdwatch-page .bw-preview-name {
+  margin: 0;
+  font-size: 1.25rem;
+}
+
+body.birdwatch-page .bw-preview-common {
+  margin: 0.1rem 0 0;
+  opacity: 0.8;
+}
+
+body.birdwatch-page .bw-figure {
+  margin: 0;
+  background: var(--theme-Xlight);
+  padding: 0.5rem;
+  border: 2px solid #222;
+  box-shadow: 6px 6px #222;
+}
+
+body.birdwatch-page .bw-photo {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* Facts */
+body.birdwatch-page .bw-facts {
+  margin: 0;
+  background: var(--theme-Xlight);
+  padding: 0.5rem 0.75rem;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 0.35rem 0.75rem;
+}
+
+body.birdwatch-page .bw-facts dt {
+  font-weight: 700;
+}
+
+body.birdwatch-page .bw-facts dd {
+  margin: 0;
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+/* Backstory */
+body.birdwatch-page .bw-backstory {
+  background: var(--theme-Xlight);
+  padding: 0.5rem 0.75rem;
+}
+
+body.birdwatch-page .bw-backstory h4 {
+  margin: 0 0 0.25rem;
+}
+
+body.birdwatch-page .bw-backstory p {
+  margin: 0;
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  body.birdwatch-page .bw-character img {
+    transition: none;
+  }
+}
+
+/* Responsive */
+@media (width < 1100px) {
+  body.birdwatch-page .bw-container {
+    grid-template-columns: 1fr 320px;
+  }
+  body.birdwatch-page .bw-characters {
+    grid-template-columns: repeat(3, minmax(110px, 1fr));
+    grid-auto-rows: 160px;
+  }
+  body.birdwatch-page .bw-preview {
+    position: relative;
+    top: auto;
+  }
+}
+
+@media (width < 900px) {
+  body.birdwatch-page .bw-characters {
+    grid-template-columns: repeat(3, minmax(110px, 1fr));
+  }
+}
+
+@media (width < 680px) {
+  body.birdwatch-page .bw-header .additional small {
+    display: none;
+  }
+  body.birdwatch-page .bw-container {
+    grid-template-columns: 1fr;
+  }
+  body.birdwatch-page .bw-preview {
+    position: relative;
+    top: auto;
+  }
+  body.birdwatch-page .bw-characters {
+    grid-template-columns: repeat(2, minmax(110px, 1fr));
+    grid-auto-rows: 140px;
+  }
+}
+
+@media (width < 435px) {
+  body.birdwatch-page .bw-characters {
+    grid-template-columns: 1fr;
+    grid-auto-rows: 110px;
+  }
+  body.birdwatch-page .bw-header .additional {
+    display: none;
+  }
+}
+
+body.birdwatch-page .bw-container,
+body.birdwatch-page .bw-characters,
+body.birdwatch-page .bw-preview {
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+body.birdwatch-page .bw-container > * {
+  min-width: 0;
+}

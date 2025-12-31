@@ -3,7 +3,311 @@ layout: layout.njk
 title: birdwatch
 permalink: /trunk/birdwatch/
 tags: [trunk]
+bodyClass: birdwatch-page
 ---
 
 <h1>the bird zone</h1>
-<img src="/images/banner-underconstruction.gif" alt="under construction" class="center">
+
+<div id="birdwatch-app" class="birdwatch-app">
+  <header class="bw-header">
+    <h2>Pick your bird</h2>
+    <div class="additional" aria-hidden="true">
+      <small>use arrow keys when focused</small>
+      <kbd>←</kbd>
+      <kbd>→</kbd>
+    </div>
+  </header>
+
+  <main class="bw-container">
+    <!-- GRID -->
+    <div class="bw-characters" id="bird-grid" role="radiogroup" aria-label="Bird selection">
+      <!-- 1 -->
+      <div class="bw-tile">
+        <input
+          class="bw-radio"
+          type="radio"
+          name="bird"
+          id="bird-1"
+          checked
+          data-id="pig-goose"
+          data-name="Pig Goose"
+          data-common="Cape Barren Goose"
+          data-species="Cereopsis novaehollandiae"
+          data-size="Large"
+          data-spotted="Walthamstow Wetlands"
+          data-backstory="Endemic to southern Australia. The indigenous Noongar people of south-western Australia use the name bibib. Common name first given by British shipwreck survivors in 1797."
+          data-sprite="/images/birds/1.png"
+          data-photo="/images/fullbirds/1.png"
+          aria-label="Pig Goose (Cape Barren Goose)"
+        />
+        <label class="bw-character" for="bird-1">
+          <img src="/images/birds/1.png" alt="Pig Goose sprite" loading="lazy" />
+        </label>
+      </div>
+
+      <!-- 2 -->
+      <div class="bw-tile">
+        <input
+          class="bw-radio"
+          type="radio"
+          name="bird"
+          id="bird-2"
+          data-id="little-hen"
+          data-name="Little Hen"
+          data-common="Common Moorhen"
+          data-species="Gallinula chloropus"
+          data-size="Medium"
+          data-spotted="Islington canals"
+          data-backstory="The name mor-hen has been recorded in English since the 13th century (old sense of moor meaning marsh)."
+          data-sprite="/images/birds/2.png"
+          data-photo="/images/fullbirds/2.png"
+          aria-label="Little Hen (Common Moorhen)"
+        />
+        <label class="bw-character" for="bird-2">
+          <img src="/images/birds/2.png" alt="Little Hen sprite" loading="lazy" />
+        </label>
+      </div>
+
+      <!-- 3 -->
+      <div class="bw-tile">
+        <input
+          class="bw-radio"
+          type="radio"
+          name="bird"
+          id="bird-3"
+          data-id="feral-parakeet"
+          data-name="Feral parakeet"
+          data-common="rose-ringed parakeet"
+          data-species="Psittacula krameri"
+          data-size="Medium"
+          data-spotted="Victoria Park"
+          data-backstory="Native to Africa and Indian subcontinent; the exact reason for how parakeets established colonies in London is not known, but many theories exist. Many believe parakeets escaped from damaged aviaries during the Great Storm of 1987."
+          data-sprite="/images/birds/3.png"
+          data-photo="/images/fullbirds/3.png"
+          aria-label="Feral parakeet (rose-ringed parakeet)"
+        />
+        <label class="bw-character" for="bird-3">
+          <img src="/images/birds/3.png" alt="Feral parakeet sprite" loading="lazy" />
+        </label>
+      </div>
+
+      <!-- 4 -->
+      <div class="bw-tile">
+        <input
+          class="bw-radio"
+          type="radio"
+          name="bird"
+          id="bird-4"
+          data-id="kijibato"
+          data-name="Kijibato"
+          data-common="Oriental Turtle Dove"
+          data-species="Streptopelia orientalis"
+          data-size="Medium"
+          data-spotted=""
+          data-backstory="Native across Central Asia to Japan. The indigenous Ainu people of Hokkaido believed birds carried messages from spirits, and translated bird calls into chants. The turtle dove’s cry was translated as Kusuwep toyta (“the turtle dove ploughs”), as it was often seen burrowing in fields searching for food."
+          data-sprite="/images/birds/4.png"
+          data-photo="/images/fullbirds/4.png"
+          aria-label="Kijibato (Oriental Turtle Dove)"
+        />
+        <label class="bw-character" for="bird-4">
+          <img src="/images/birds/4.png" alt="Kijibato sprite" loading="lazy" />
+        </label>
+      </div>
+
+      <!-- 5 -->
+      <div class="bw-tile">
+        <input
+          class="bw-radio"
+          type="radio"
+          name="bird"
+          id="bird-5"
+          data-id="frillback"
+          data-name="Frillback"
+          data-common="Fancy pigeon (frill)"
+          data-species="Columba livia domestica"
+          data-size="Medium"
+          data-spotted="Berlin"
+          data-backstory="Derived from rock doves (likely originating in the Middle East), pigeons were domesticated around 5000 years ago. People have practiced pigeon fancying (selectively breeding pigeons for aesthetics) for thousands of years and in almost every part of the world."
+          data-sprite="/images/birds/5.png"
+          data-photo="/images/fullbirds/5.png"
+          aria-label="Frillback (Fancy pigeon)"
+        />
+        <label class="bw-character" for="bird-5">
+          <img src="/images/birds/5.png" alt="Frillback sprite" loading="lazy" />
+        </label>
+      </div>
+
+      <!-- 6 -->
+      <div class="bw-tile">
+        <input
+          class="bw-radio"
+          type="radio"
+          name="bird"
+          id="bird-6"
+          data-id="red-breasted-goose"
+          data-name="Red-breasted goose"
+          data-common="Red-breasted goose"
+          data-species="Branta ruficollis"
+          data-size="Small"
+          data-spotted="Walthamstow Wetlands"
+          data-backstory="Remains have been found in Bulgaria from more than 12,000 years ago. Today it breeds in Arctic Siberia and winters in Bulgaria, Romania and Ukraine. Branta is a Latinised form of Old Norse Brandgás (“burnt” / black goose)."
+          data-sprite="/images/birds/6.png"
+          data-photo="/images/fullbirds/6.png"
+          aria-label="Red-breasted goose"
+        />
+        <label class="bw-character" for="bird-6">
+          <img src="/images/birds/6.png" alt="Red-breasted goose sprite" loading="lazy" />
+        </label>
+      </div>
+
+      <!-- 7 -->
+      <div class="bw-tile">
+        <input
+          class="bw-radio"
+          type="radio"
+          name="bird"
+          id="bird-7"
+          data-id="hiyodori"
+          data-name="Hiyodori"
+          data-common="Brown-eared bulbul"
+          data-species="Hypsipetes amaurotis"
+          data-size="Medium"
+          data-spotted="Chiyoda, Japan"
+          data-backstory="Native to eastern Asia. Bulbuls are considered agricultural pests in some areas of Japan where they invade farms and orchards, damaging crops such as cabbages, cauliflowers and spinach."
+          data-sprite="/images/birds/7.png"
+          data-photo="/images/fullbirds/7.png"
+          aria-label="Hiyodori (Brown-eared bulbul)"
+        />
+        <label class="bw-character" for="bird-7">
+          <img src="/images/birds/7.png" alt="Hiyodori sprite" loading="lazy" />
+        </label>
+      </div>
+
+      <!-- 8 -->
+      <div class="bw-tile">
+        <input
+          class="bw-radio"
+          type="radio"
+          name="bird"
+          id="bird-8"
+          data-id="siskin"
+          data-name="Siskin"
+          data-common="Eurasian siskin"
+          data-species="Spinus spinus"
+          data-size="Small"
+          data-spotted="Oxfordshire (photo by Dad!)"
+          data-backstory="The name siskin is adapted from the German dialect word sisschen, from Middle Low German sisek — onomatopoeic from the bird’s calls."
+          data-sprite="/images/birds/8.png"
+          data-photo="/images/fullbirds/8.png"
+          aria-label="Siskin (Eurasian siskin)"
+        />
+        <label class="bw-character" for="bird-8">
+          <img src="/images/birds/8.png" alt="Siskin sprite" loading="lazy" />
+        </label>
+      </div>
+
+      <!-- 9 -->
+      <div class="bw-tile">
+        <input
+          class="bw-radio"
+          type="radio"
+          name="bird"
+          id="bird-9"
+          data-id="grey-heron"
+          data-name="Grey Heron"
+          data-common=""
+          data-species="Ardea cinerea"
+          data-size="Large"
+          data-spotted="Kyoto, Japan"
+          data-backstory="Bennu, an ancient Egyptian deity associated with the sun, creation, and rebirth, was depicted as a heron in New Kingdom artwork. In ancient Rome, the heron was a bird of divination that gave an augury by its call."
+          data-sprite="/images/birds/9.png"
+          data-photo="/images/fullbirds/9.png"
+          aria-label="Grey Heron"
+        />
+        <label class="bw-character" for="bird-9">
+          <img src="/images/birds/9.png" alt="Grey Heron sprite" loading="lazy" />
+        </label>
+      </div>
+
+      <!-- 10 -->
+      <div class="bw-tile">
+        <input
+          class="bw-radio"
+          type="radio"
+          name="bird"
+          id="bird-10"
+          data-id="robin"
+          data-name="Robin"
+          data-common="European robin"
+          data-species="Erithacus rubecula"
+          data-size="Small"
+          data-spotted="Oxford"
+          data-backstory="Robins were originally called ‘redbreast’ despite their orange plumage because orange as a colour name was unknown in English until the 16th century. In 15th-century England it was common to give familiar species human names; Robin is a diminutive of Robert."
+          data-sprite="/images/birds/10.png"
+          data-photo="/images/fullbirds/10.png"
+          aria-label="Robin (European robin)"
+        />
+        <label class="bw-character" for="bird-10">
+          <img src="/images/birds/10.png" alt="Robin sprite" loading="lazy" />
+        </label>
+      </div>
+
+      <!-- 11 -->
+      <div class="bw-tile">
+        <input
+          class="bw-radio"
+          type="radio"
+          name="bird"
+          id="bird-11"
+          data-id="pied-wagtail"
+          data-name="Pied wagtail"
+          data-common="black-backed White wagtail"
+          data-species="Motacilla alba"
+          data-size="Small"
+          data-spotted="Stratford, UK"
+          data-backstory="The Latin genus name originally meant “little mover”, named so for its near-constant tail wagging (the precise reason for which is poorly understood)."
+          data-sprite="/images/birds/11.png"
+          data-photo="/images/fullbirds/11.png"
+          aria-label="Pied wagtail (White wagtail)"
+        />
+        <label class="bw-character" for="bird-11">
+          <img src="/images/birds/11.png" alt="Pied wagtail sprite" loading="lazy" />
+        </label>
+      </div>
+    </div>
+
+    <!-- PREVIEW -->
+    <aside class="bw-preview" aria-live="polite" aria-label="Selected bird details">
+      <div class="bw-preview-head">
+        <h3 class="bw-preview-name" id="bw-name">Pig Goose</h3>
+        <p class="bw-preview-common" id="bw-common">Cape Barren Goose</p>
+      </div>
+
+      <figure class="bw-figure">
+        <img
+          class="bw-photo"
+          id="bw-photo"
+          src="/images/fullbirds/1.png"
+          alt="Pig Goose photo"
+          loading="lazy"
+          decoding="async"
+        />
+      </figure>
+
+      <dl class="bw-facts">
+        <dt>Size</dt><dd id="bw-size">Large</dd>
+        <dt>Species</dt><dd id="bw-species"><em>Cereopsis novaehollandiae</em></dd>
+        <dt>Spotted</dt><dd id="bw-spotted">Walthamstow Wetlands</dd>
+      </dl>
+
+      <div class="bw-backstory">
+        <h4>Backstory</h4>
+        <p id="bw-backstory">
+          Endemic to southern Australia. The indigenous Noongar people of south-western Australia use the name bibib. Common name first given by British shipwreck survivors in 1797.
+        </p>
+      </div>
+    </aside>
+  </main>
+</div>
+
+<script defer src="/js/birdwatch.js"></script>
