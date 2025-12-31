@@ -16,6 +16,16 @@
   --ar-h: 13;
 }
 
+.deck-RW {
+  --ar-w: 7;
+  --ar-h: 12;
+}
+
+.deck-bot {
+  --ar-w: 11;
+  --ar-h: 20;
+}
+
 .hand {
   display: inline-grid;
   grid-template-columns: repeat(5, 0);
